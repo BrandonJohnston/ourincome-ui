@@ -1,0 +1,22 @@
+<header class="top-nav-module">
+    <div class="side-nav-toggle" ng-click="vm.toggleSideboard()" ng-class="{'active': vm.isToggleOpen}"><span class="icon-toggle"></span></div>
+    <div class="page-title"  ng-click="vm.navigate()">
+        <span translate="budget.TOP_NAV.HEADER"></span>
+    </div>
+	<div class="user-nav-container" ng-if="vm.userData">
+		<div class="user-nav-toggle" ng-click="vm.toggleUserNav()" ng-class="{'active': vm.isUserNavOpen}">
+			<div ng-if="!vm.userData.loggedin">
+				<span class="toggle" translate="budget.TOP_NAV.LOGIN"></span>
+			</div>
+			<div ng-if="vm.userData.loggedin">
+				<span class="toggle">{{vm.getUserFullName()}}</span>
+			</div>
+		</div>
+		<div class="login-tooltip" ng-if="vm.isUserNavOpen && !vm.userData.loggedin">
+			<budget-login-form close="vm.closeUserNav()"></budget-login-form>
+		</div>
+		<div class="user-nav-tooltip" ng-if="vm.isUserNavOpen && vm.userData.loggedin">
+			<budget-user-nav close="vm.closeUserNav()"></budget-user-nav>
+		</div>
+	</div>
+</header>

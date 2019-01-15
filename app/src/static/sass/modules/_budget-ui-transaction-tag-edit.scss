@@ -1,0 +1,20 @@
+/*****************************************************************************
+**
+**		Transaction Tag Edit
+**
+*****************************************************************************/
+.edit-trans-tag-value {
+
+	.mod-body {
+		padding: budget-calc(10, 16, em);
+	}
+
+	.tag-input {
+		margin-bottom: budget-calc(10, 16, em);
+	}
+
+	.percent-slider, .currency-slider {
+		margin: budget-calc(20, 16, em) auto budget-calc(10, 16, em);
+		width: 94%;
+	}
+}

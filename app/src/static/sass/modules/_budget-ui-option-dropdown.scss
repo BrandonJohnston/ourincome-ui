@@ -1,0 +1,255 @@
+/*****************************************************************************
+**
+**		Option Dropdown
+**
+*****************************************************************************/
+.budget-option-dropdown {
+    position: relative;
+
+    /*
+     * Display mode types (block/inline-block)
+     */
+    &.option-block {
+        display: block;
+    }
+
+    &.option-inline-block {
+        display: inline-block;
+    }
+
+
+    /*
+     * The selected option
+     */
+    .selected-option {
+        background: $white;
+        border: 1px solid $blue;
+        cursor: pointer;
+		line-height: 15px;
+        padding: budget-calc(8, 16, em) budget-calc(10, 16, em);
+        position: relative;
+
+		.selected-option-text {
+			font-size: budget-calc(14, 16, em);
+			line-height: budget-calc(16, 14, em);
+		}
+    }
+
+    .option-toggle {
+        background: $blue;
+        bottom: 0;
+		cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+		transition: all .15s ease-in-out;
+        width: budget-calc(34, 16, em);
+
+        &:after, &:before {
+            border: 5px solid $blue-dark;
+            border-right-color: transparent;
+            border-left-color: transparent;
+            content: '';
+            display: block;
+            height: 0;
+            position: absolute;
+            right: budget-calc(12, 16, em);
+            transition: all .15s ease-in-out;
+            width: 0;
+        }
+
+        &:after {
+            border-top-color: transparent;
+            display: none;
+            top: budget-calc(9, 16, em);
+        }
+
+        &:before {
+            border-bottom-color: transparent;
+            top: budget-calc(14, 16, em);
+        }
+    }
+
+    /*
+     * The list of options
+     */
+    .option-list {
+        border: 1px solid $blue;
+        display: none;
+        left: 0;
+		max-height: budget-calc(200, 16, em);
+		overflow: scroll;
+        position: absolute;
+        top: calc(100% - 1px);
+        width: 100%;
+        z-index: 100;
+    }
+
+	.option-list-item, .option-sub-list-item {
+		background: $white;
+		border-bottom: 1px solid $blue;
+		cursor: pointer;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.option-text {
+			font-size: budget-calc(12, 16, em);
+			transition: all .15s ease-in-out;
+		}
+
+		> .text-container {
+			padding: budget-calc(7, 16, em) budget-calc(10, 16, em) budget-calc(7, 16, em) budget-calc(10, 16, em);
+			position: relative;
+			transition: all .15s ease-in-out;
+
+			&:before {
+				background: $blue-dark;
+				bottom: 0;
+				content: '';
+				left: 0;
+				position: absolute;
+				top: 0;
+				transition: all .15s ease-in-out;
+				width: 0;
+			}
+
+			&:hover {
+
+				&:before {
+					width: 3px;
+				}
+
+				.option-text {
+					color: $blue-dark;
+				}
+			}
+
+			&.selected {
+				cursor: auto;
+
+				&:before {
+					width: 3px;
+				}
+
+				.option-text {
+					color: $blue-dark;
+				}
+			}
+		}
+	}
+
+	.option-sub-list-item {
+
+		&:first-child {
+			border-top: 1px solid $blue;
+		}
+
+		> .text-container {
+			padding-left: budget-calc(20, 16, em);
+		}
+	}
+
+	&.multi-select {
+
+		.option-list-item {
+
+			.text-container.selected {
+				cursor: pointer;
+			}
+		}
+	}
+
+
+    /*
+     * The option dropdown is open
+     */
+    &.active {
+
+        .option-toggle {
+            background: $blue-dark;
+
+            &:after {
+                border-bottom-color: $white;
+                display: block;
+            }
+
+            &:before {
+                display: none;
+            }
+        }
+
+        .option-list {
+            display: block;
+        }
+    }
+
+
+    /*
+     * The option dropdown is disabled
+     */
+    &.disabled {
+
+        .selected-option {
+            border-color: $gray;
+
+            &:hover {
+
+                .option-toggle:before {
+                    border-top-color: $gray;
+                }
+            }
+        }
+
+        .selected-option-text {
+            color: $gray;
+        }
+
+        .option-toggle {
+            background: $gray;
+            border-left-color: $gray;
+			cursor: auto;
+
+            &:before {
+                border-top-color: $gray;
+            }
+        }
+
+        .selected-option {
+            cursor: default;
+        }
+
+        .selected-option:hover {
+
+            .option-toggle:before {
+                border-top-color: $gray;
+            }
+        }
+    }
+}
+
+
+.form-large {
+
+    .selected-option {
+        font-size: budget-calc(18, 16, em);
+        padding: budget-calc(10, 18, em) budget-calc(48, 18, em) budget-calc(10, 18, em) budget-calc(12, 18, em);
+    }
+
+    .option-toggle {
+        width: budget-calc(42, 18, em);
+
+        &:after, &:before {
+            right: budget-calc(15, 18, em);
+        }
+
+        &:after {
+            top: budget-calc(13, 18, em);
+        }
+
+        &:before {
+            top: budget-calc(18, 18, em);
+        }
+    }
+}

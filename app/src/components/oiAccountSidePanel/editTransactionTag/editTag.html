@@ -1,0 +1,72 @@
+<div ng-controller="oiEditTransactionTagController as vm" class="edit-trans-tag-value">
+	<div class="mod-body-wrapper">
+		<div class="mod-body">
+			<ng-form class="edit-tag-form" name="editTagForm" novalidate>
+				<ul class="edit-tag-list">
+					<li class="tag-type-item">
+						<div ng-if="vm.tagValueTypeDropdown.config">
+							<budget-option-dropdown config="vm.tagValueTypeDropdown.config"
+													select-options="vm.tagValueTypeDropdown.tagValueTypes"
+													ng-model="vm.tagValueTypeDropdown.selectedTagValueType"
+													change-fn="vm.changeTagValueType()"></budget-option-dropdown>
+						</div>
+					</li>
+					<li class="tag-value-item">
+						<div ng-if="vm.tagModel.valType === 'P'">
+							<div class="form-input-group">
+								<label class="input-label" translate="budget.ACCOUNT.SIDE_PANEL.TAG_POPOVER.TAG_PERCENT_LABEL"></label>
+								<input type="text"
+									   id="tag-percent-input"
+									   class="tag-input"
+									   placeholder="{{'budget.ACCOUNT.SIDE_PANEL.TAG_POPOVER.PERCENT_PLACEHOLDER' | translate}}"
+									   oi-percent-format
+									   name="percentValue"
+									   ng-model="vm.percentSlider.model"
+									   required />
+								<div ui-slider="vm.percentSlider.options"
+									 ng-model="vm.percentSlider.model"
+									 class="percent-slider"></div>
+							</div>
+						</div>
+
+						<div ng-if="vm.tagModel.valType === 'C'">
+							<div class="form-input-group">
+								<label class="input-label" translate="budget.ACCOUNT.SIDE_PANEL.TAG_POPOVER.TAG_CURRENCY_LABEL"></label>
+								<input type="text"
+									   id="tag-currency-input"
+									   class="tag-input"
+									   placeholder="{{'budget.ACCOUNT.SIDE_PANEL.TAG_POPOVER.CURRENCY_PLACEHOLDER' | translate}}"
+									   oi-currency-format
+									   name="currencyValue"
+									   ng-model="vm.currencySlider.model"
+									   required />
+								<div ui-slider="vm.currencySlider.options"
+									 ng-model="vm.currencySlider.model"
+									 class="currency-slider"></div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</ng-form>
+		</div>
+	</div>
+	<div class="mod-footer-wrapper">
+		<div class="mod-footer">
+			<div class="action-container"
+				 ng-class="{'disabled': editTagForm.$invalid,
+				 			'processing': vm.tagModel.processing,
+				 			'valid': vm.isUpdateValid()}"
+				 ng-click="vm.updateTagValue()">
+				<p class="action-text">
+					<span translate="budget.ACCOUNT.SIDE_PANEL.TAG_POPOVER.UPDATE_TAG_ACTION">}</span>
+					<svg version="1.1" id="Layer_1" class="chevron-right" xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 12 20">
+						<g transform="translate(2043.3,-1800)">
+							<path class="chevron-right-svg" d="M-2043.3,1818.5l-0.4-0.4l4.1-4.1l4.1-4.1l-4.1-4.1l-4.1-4.1l0.4-0.4l0.4-0.4l4.5,4.5l4.5,4.5l-4.5,4.5
+								l-4.5,4.5L-2043.3,1818.5L-2043.3,1818.5z"/>
+						</g>
+					</svg>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

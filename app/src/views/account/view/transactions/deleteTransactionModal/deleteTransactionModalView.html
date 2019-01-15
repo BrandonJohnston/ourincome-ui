@@ -1,0 +1,32 @@
+<div ng-controller="deleteTransactionModalController as vm" class="delete-transaction-modal">
+	<p class="modal-text" translate="budget.ACCOUNT.DELETE_TRANSACTION_MODAL.DELETE_TEXT"></p>
+	<ul class="transactions-list">
+		<li class="transactions-list-item transactions-header">
+			<div class="trans-date">
+				<p translate="budget.ACCOUNT.VIEW.DATE_COL_HEADER"></p>
+			</div>
+			<div class="trans-name">
+				<p translate="budget.ACCOUNT.VIEW.NAME_COL_HEADER"></p>
+			</div>
+			<div class="trans-amount">
+				<p translate="budget.ACCOUNT.VIEW.AMOUNT_COL_HEADER"></p>
+			</div>
+		</li>
+		<li class="transactions-list-item">
+			<div class="transaction-row">
+				<div class="trans-date">
+					<p>{{vm.transactionData.transDisplayDate}}</p>
+				</div>
+				<div class="trans-name">
+					<p>{{vm.transactionData.transName}}</p>
+				</div>
+				<div class="trans-amount">
+					<p>
+						<span ng-if="vm.transactionData.transType === '2'">-</span>{{vm.transactionData.transAmount | currency}}
+					</p>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<p class="modal-text" translate="budget.ACCOUNT.DELETE_TRANSACTION_MODAL.UNDONE"></p>
+</div>

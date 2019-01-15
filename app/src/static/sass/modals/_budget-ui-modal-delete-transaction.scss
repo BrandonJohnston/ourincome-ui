@@ -1,0 +1,30 @@
+/*****************************************************************************
+**
+**		Delete Transaction Modal
+**
+*****************************************************************************/
+.delete-transaction-modal {
+	padding: budget-calc($padding-half, 16, em) budget-calc($padding-default, 16, em) budget-calc($padding-default, 16, em);
+
+	.modal-text {
+		font-size: budget-calc(20, 16, em);
+		font-weight: 100;
+		margin: 0;
+	}
+
+	.transactions-list {
+		padding: budget-calc($padding-default, 16, em) 0;
+
+		.trans-date {
+			width: 20%;
+		}
+
+		.trans-name {
+			width: 55%;
+		}
+
+		.trans-amount {
+			width: 25%;
+		}
+	}
+}

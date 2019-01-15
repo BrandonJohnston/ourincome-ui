@@ -1,0 +1,220 @@
+/*****************************************************************************
+**
+**		View Account Module
+**
+*****************************************************************************/
+.view-account-module {
+	padding: budget-calc($padding-half, 16, em);
+	position: relative;
+}
+
+
+.view-account-main-content {
+	background: $white;
+	border-radius: budget-calc(4, 16, em);
+	display: inline-block;
+	margin-right: budget-calc(10, 16, em);
+	vertical-align: top;
+	width: calc(70% - 5px);
+
+
+	/*****************************************************************************
+    **		Header
+    *****************************************************************************/
+	> .mod-header-wrapper {
+		border-bottom: 1px solid $gray;
+
+		h4 {
+			font-size: budget-calc(28, 16, em);
+			font-weight: 100;
+		}
+	}
+
+	.equal-container {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+	}
+
+	.balance-container {
+		text-align: right;
+
+		p {
+			font-size: budget-calc(28, 16, em);
+			font-weight: 100;
+		}
+	}
+
+
+	/*****************************************************************************
+    **		Sub-Nav
+    *****************************************************************************/
+	.account-view-subnav {
+
+		.mod-body {
+			padding: 0 budget-calc($padding-default, 16, em);
+		}
+
+		li {
+			border-top: 2px solid transparent;
+			cursor: pointer;
+			display: inline-block;
+			padding: budget-calc(8, 16, em) budget-calc($padding-default, 16, em) budget-calc($padding-half, 16, em);
+			vertical-align: top;
+
+			&.active {
+				border-top: 2px solid $blue-dark;
+			}
+		}
+	}
+
+
+	.account-view-transactions {
+
+		.mod-body {
+			padding-top: 0;
+		}
+	}
+}
+
+.transactions-list {
+
+	.transaction-row {
+		align-items: stretch;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+
+	.trans-date, .trans-name, .trans-amount, .trans-options {
+		display: inline-block;
+		flex-grow: 1;
+		padding: budget-calc($padding-half, 16, em);
+		vertical-align: top;
+
+		> p {
+			font-size: budget-calc(18, 16, em);
+			font-weight: 100;
+		}
+	}
+
+	.trans-date {
+		order: 1;
+		white-space: nowrap;
+		width: 20%;
+	}
+
+	.trans-name {
+		border-left: 1px solid $blue-darker;
+		order: 2;
+		white-space: nowrap;
+		width: 55%;
+	}
+
+	.trans-amount {
+		border-left: 1px solid $blue-darker;
+		order: 3;
+		text-align: right;
+		white-space: nowrap;
+		width: calc(25% - 25px);
+	}
+
+	.trans-options {
+		border-left: 1px solid $blue-darker;
+		order: 4;
+		padding: 0;
+		position: relative;
+		text-align: center;
+		width: budget-calc(25, 16, em);
+
+		&:before {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+			width: 0;
+		}
+
+		> p {
+			background: url('/static/images/icon_options_black_4x18.svg') center center no-repeat;
+			background-size: 4px 20px;
+			cursor: pointer;
+			display: inline-block;
+			height: 100%;
+			margin: 0;
+			padding: budget-calc(10, 18, em);
+			vertical-align: middle;
+			width: budget-calc(24, 18, em);
+		}
+	}
+
+	.transactions-list-item {
+		background: $white;
+		border-bottom: 1px solid $blue-darker;
+
+		&:nth-child(even) {
+			background: $offwhite;
+		}
+	}
+
+	.transactions-header {
+		background: $blue-dark;
+		border-top: 1px solid $blue-darker;
+
+		p {
+			color: $white;
+		}
+
+		.trans-options {
+			height: budget-calc(42, 16, em);
+		}
+	}
+
+	.trans-subhead {
+		background: $blue;
+		padding: budget-calc($padding-half, 16, em);
+
+		p {
+			color: $white;
+			font-size: budget-calc(18, 16, em);
+			font-weight: 100;
+		}
+	}
+
+	.transactions-empty {
+		padding: budget-calc($padding-half, 16, em);
+
+		p {
+			font-size: budget-calc(18, 16, em);
+			font-weight: 100;
+			text-align: center;
+		}
+	}
+}
+
+
+.view-account-secondary-content {
+	background: $white;
+	border-radius: budget-calc(4, 16, em);
+	display: inline-block;
+	vertical-align: top;
+	width: calc(30% - 5px);
+
+
+	/*****************************************************************************
+    **		Header
+    *****************************************************************************/
+	.mod-header {
+		border-bottom: 1px solid $gray;
+
+		h4 {
+			font-size: budget-calc(28, 16, em);
+			font-weight: 100;
+		}
+	}
+}
+
+.account-side-panel {
+	display: inline-block;
+	width: calc(30% - 10px);
+}

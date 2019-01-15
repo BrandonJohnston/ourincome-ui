@@ -1,0 +1,78 @@
+<div class="view-account-transactions">
+	<div class="view-account-main-content">
+		<div class="mod-header-wrapper">
+			<div class="mod-header">
+				<div class="equal-container">
+					<h4>{{vm.accountData.accountName}}</h4>
+				</div>
+				<div class="equal-container balance-container">
+					<p>{{vm.accountData.calculatedBalance | currency}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="mod-body-wrapper account-view-subnav">
+			<div class="mod-body">
+				<ul>
+					<li class="active" translate="budget.ACCOUNT.VIEW.SUBHEAD.TRANSACTIONS" ng-click="vm.navigate('account.view.transactions')"></li>
+					<li translate="budget.ACCOUNT.VIEW.SUBHEAD.BUDGET" ng-click="vm.navigate('account.view.budget')"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="mod-body-wrapper account-view-transactions">
+			<div class="mod-body">
+				<ul class="transactions-list">
+					<li class="transactions-list-item transactions-header">
+						<div class="trans-date">
+							<p translate="budget.ACCOUNT.VIEW.DATE_COL_HEADER"></p>
+						</div>
+						<div class="trans-name">
+							<p translate="budget.ACCOUNT.VIEW.NAME_COL_HEADER"></p>
+						</div>
+						<div class="trans-amount">
+							<p translate="budget.ACCOUNT.VIEW.AMOUNT_COL_HEADER"></p>
+						</div>
+						<div class="trans-options"></div>
+					</li>
+					<li class="transactions-list-item"
+						ng-if="vm.accountData.transactions.length === 0">
+						<div class="transactions-empty">
+							<p translate="budget.ACCOUNT.VIEW.ADD_TRANSACTIONS"></p>
+						</div>
+					</li>
+					<li class="transactions-list-item"
+						ng-repeat="transaction in vm.accountData.transactions track by $index">
+
+						<div class="transaction-row"
+							 ng-if="vm.isTransactionRow(transaction.rowType)">
+							<div class="trans-date">
+								<p>{{transaction.transDisplayDate}}</p>
+							</div>
+							<div class="trans-name">
+								<p>{{transaction.transName}}</p>
+							</div>
+							<div class="trans-amount">
+								<p>
+									<span ng-if="transaction.transType === '2'">-</span>{{transaction.transAmount | currency}}
+								</p>
+							</div>
+							<div class="trans-options">
+								<p ng-click="vm.openRowOptions(transaction.id)"></p>
+								<budget-popover ng-if="transaction.id === vm.openOptionsRow"
+												config="vm.rowPopoverConfig"
+												close="vm.closeRowOptions(apply)"></budget-popover>
+							</div>
+						</div>
+						<div class="subhead-row" ng-if="!vm.isTransactionRow(transaction.rowType)">
+							<div class="trans-subhead">
+								<p>{{transaction.monthDisplayDate}}</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div><!--
+	--><div class="account-side-panel">
+		<oi-account-side-panel account-id="vm.accountData.accountId"></oi-account-side-panel>
+	</div>
+</div>

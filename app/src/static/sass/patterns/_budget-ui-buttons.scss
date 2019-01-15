@@ -1,0 +1,58 @@
+/*****************************************************************************
+**
+**		Button Styles
+**
+*****************************************************************************/
+.button-submit {
+    background: $blue;
+    border: 1px solid $blue;
+    color: $white;
+    outline: none;
+	position: relative;
+    transition: all .15s ease-in-out;
+
+    &:hover {
+        background: $blue-dark;
+		border: 1px solid $blue-dark;
+        color: $white;
+    }
+
+    &:active {
+        background: $blue-darker;
+		border: 1px solid $blue-darker;
+        color: $white;
+    }
+
+	&.processing {
+
+		&:before {
+			background: $white;
+			bottom: 0;
+			content: '';
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	}
+}
+
+
+.button-disabled {
+    background: $blue-lighter;
+    border: 1px solid $blue-lighter;
+    color: $blue-light;
+    cursor: default;
+
+    &:hover {
+        background: $blue-lighter;
+		border: 1px solid $blue-lighter;
+        color: $blue-light;
+    }
+
+    &:active {
+        background: $blue-lighter;
+		border: 1px solid $blue-lighter;
+        color: $blue-light;
+    }
+}

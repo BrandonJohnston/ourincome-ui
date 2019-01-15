@@ -1,0 +1,133 @@
+/*****************************************************************************
+**
+**		Form Styles
+**
+*****************************************************************************/
+ng-form {
+	display: block;
+}
+
+form, ng-form {
+
+    > ul > li {
+        padding-bottom: budget-calc($padding-default, 16, em);
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+    .form-errors {
+        padding: budget-calc(10, 16, em) 0;
+    }
+
+    .error {
+        color: $error;
+        font-size: budget-calc(12, 16, em);
+        font-weight: 100;
+    }
+
+	.form-action-container {
+		border-top: 1px solid $blue;
+		padding-top: budget-calc($padding-default, 16, em);
+	}
+
+	.input-wrapper {
+		position: relative;
+	}
+}
+
+.input-label {
+    display: block;
+    font-size: budget-calc(12, 16, em);
+    font-weight: bold;
+	margin: 0;
+    padding-bottom: budget-calc($padding-half, 12, em);
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+	background: $white;
+    border: 1px solid $blue;
+    display: block;
+    line-height: 1.25;
+    padding: budget-calc(6, 16, em) budget-calc(40, 16, em) budget-calc(6, 16, em) budget-calc(10, 16, em);
+    width: 100%;
+
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $gray;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: $gray;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: $gray;
+    }
+
+    &.ng-dirty.ng-invalid {
+        border-color: $error;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+input[type="button"] {
+    line-height: 1.25;
+    padding: budget-calc(6, 16, em) budget-calc(20, 16, em);
+
+	&.button-full {
+		display: block;
+		padding: budget-calc(6, 16, em) budget-calc(10, 16, em);
+		width: 100%;
+	}
+}
+
+
+.form-large {
+
+    input[type="text"], input[type="password"], input[type="email"], input[type="button"] {
+        font-size: budget-calc(18, 16, em);
+        padding: budget-calc(10, 18, em) budget-calc(12, 18, em);
+    }
+}
+
+
+.form-input-group {
+	position: relative;
+
+	.option-toggle {
+		background: $blue;
+		bottom: 0;
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: all .15s ease-in-out;
+		width: budget-calc(34, 16, em);
+
+		&:after, &:before {
+			border: 5px solid $blue-dark;
+			border-right-color: transparent;
+			border-left-color: transparent;
+			content: '';
+			display: block;
+			height: 0;
+			position: absolute;
+			right: budget-calc(12, 16, em);
+			transition: all .15s ease-in-out;
+			width: 0;
+		}
+
+		&:after {
+			border-top-color: transparent;
+			display: none;
+			top: budget-calc(9, 16, em);
+		}
+
+		&:before {
+			border-bottom-color: transparent;
+			top: budget-calc(14, 16, em);
+		}
+	}
+}

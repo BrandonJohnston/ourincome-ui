@@ -1,0 +1,80 @@
+<div class="signup-module general-module">
+	<div class="mod-header-wrapper">
+		<div class="mod-header">
+			<h5 translate="budget.SIGNUP_FORM.HEADER"></h5>
+		</div>
+	</div>
+    <div class="mod-body-wrapper">
+		<div class="mod-body">
+			<form class="signup-module" name="signupForm" novalidate>
+				<ul>
+					<li>
+						<label class="input-label" translate="budget.SIGNUP_FORM.FIRST_NAME_LABEL"></label>
+						<input type="text"
+							   placeholder="{{'budget.SIGNUP_FORM.FIRST_NAME_PLACEHOLDER' | translate}}"
+							   name="first_name"
+							   ng-model="vm.signupData.userFirstName"
+							   required
+							   ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 250, 'blur': 0 } }"
+							   ng-class="{'ng-invalid': vm.signupData.signupError}"
+							   ng-focus="vm.signupData.signupError = false" />
+						<div class="form-errors" ng-if="signupForm.first_name.$invalid && signupForm.first_name.$dirty">
+							<p class="error" ng-if="signupForm.first_name.$error.required && signupForm.first_name.$dirty" translate="budget.SIGNUP_FORM.ERROR_NAME_REQUIRED"></p>
+						</div>
+					</li>
+					<li>
+						<label class="input-label" translate="budget.SIGNUP_FORM.LAST_NAME_LABEL"></label>
+						<input type="text"
+							   placeholder="{{'budget.SIGNUP_FORM.LAST_NAME_PLACEHOLDER' | translate}}"
+							   name="last_name"
+							   ng-model="vm.signupData.userLastName"
+							   required
+							   ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 250, 'blur': 0 } }"
+							   ng-class="{'ng-invalid': vm.signupData.signupError}"
+							   ng-focus="vm.signupData.signupError = false" />
+						<div class="form-errors" ng-if="signupForm.last_name.$invalid && signupForm.last_name.$dirty">
+							<p class="error" ng-if="signupForm.last_name.$error.required && signupForm.last_name.$dirty" translate="budget.SIGNUP_FORM.ERROR_NAME_REQUIRED"></p>
+						</div>
+					</li>
+					<li>
+						<label class="input-label" translate="budget.SIGNUP_FORM.EMAIL_LABEL"></label>
+						<input type="email"
+							   placeholder="{{'budget.SIGNUP_FORM.EMAIL_PLACEHOLDER' | translate}}"
+							   name="email"
+							   ng-model="vm.signupData.userEmail"
+							   required
+							   ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 250, 'blur': 0 } }"
+							   ng-class="{'ng-invalid': vm.signupData.signupError}"
+							   ng-focus="vm.signupData.signupError = false" />
+						<div class="form-errors" ng-if="signupForm.email.$invalid && signupForm.email.$dirty">
+							<p class="error" ng-if="signupForm.email.$error.required && signupForm.email.$dirty" translate="budget.SIGNUP_FORM.ERROR_EMAIL_REQUIRED"></p>
+							<p class="error" ng-if="signupForm.email.$error.email && signupForm.email.$dirty" translate="budget.SIGNUP_FORM.ERROR_EMAIL_INVALID"></p>
+						</div>
+					</li>
+					<li>
+						<label class="input-label" translate="budget.SIGNUP_FORM.PASSWORD_LABEL"></label>
+						<input type="password"
+							   placeholder="{{'budget.SIGNUP_FORM.PASSWORD_PLACEHOLDER' | translate}}"
+							   name="password"
+							   ng-model="vm.signupData.userPassword"
+							   required
+							   ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 250, 'blur': 0 } }"
+							   ng-class="{'ng-invalid': vm.signupData.signupError}"
+							   ng-focus="vm.signupData.signupError = false"
+							   ng-keyup="signupForm.$valid && $event.keyCode == 13 && vm.signup()" />
+						<div class="form-errors" ng-if="signupForm.password.$invalid && signupForm.password.$dirty">
+							<p class="error" ng-show="signupForm.password.$error.required && signupForm.password.$dirty" translate="budget.SIGNUP_FORM.ERROR_PASSWORD_REQUIRED"></p>
+						</div>
+					</li>
+					<li class="form-action-container">
+						<input type="button" class="button-submit" ng-class="{'button-disabled': signupForm.$invalid || vm.signupForm.signupError}"
+							   ng-disabled="signupForm.$invalid || vm.signupForm.signupError" ng-click="vm.signup()" value="{{'budget.SIGNUP_FORM.SIGNUP_BUTTON' | translate}}" />
+					</li>
+				</ul>
+				<div ng-if="vm.signupData.signupError" class="form-errors">
+					<p class="error" translate="budget.SIGNUP_FORM.ERROR_EMAIL_EXISTS"></p>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

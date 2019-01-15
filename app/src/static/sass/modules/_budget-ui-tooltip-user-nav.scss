@@ -1,0 +1,62 @@
+/*****************************************************************************
+**
+**		Tooltip User Nav
+**
+*****************************************************************************/
+.user-nav-tooltip {
+	box-shadow: 0 0 15px rgba(0, 0, 0, .25);
+	position: absolute;
+	right: budget-calc($padding-default, 16, em);
+	top: 100%;
+
+	&:before {
+		border: 10px solid transparent;
+		border-bottom-color: $blue;
+		content: '';
+		height: 0;
+		position: absolute;
+		right: 10px;
+		top: -19px;
+		width: 0;
+	}
+}
+
+.user-nav-module {
+	width: budget-calc(300, 16, em);
+
+	.mod-header {
+		background: $blue;
+		border-radius: budget-calc(4, 16, em) budget-calc(4, 16, em) 0 0;
+		padding: budget-calc($padding-half, 16, em);
+
+		h5 {
+			color: $white;
+		}
+	}
+
+	.mod-body {
+		padding: 0;
+	}
+
+	.nav-options-item {
+		background: $blue-dark;
+		border-top: 1px solid $blue;
+		cursor: pointer;
+		padding: budget-calc($padding-half, 16, em);
+		transition: all .15s ease-in-out;
+
+		&:first-child {
+			border-top: none;
+		}
+
+		&:hover {
+			background: $blue-darker;
+		}
+
+		p {
+			color: $white;
+			font-size: budget-calc(14, 16, em);
+			line-height: 1;
+		}
+	}
+}

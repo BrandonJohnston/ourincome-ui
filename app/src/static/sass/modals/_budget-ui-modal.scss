@@ -1,0 +1,183 @@
+/*****************************************************************************
+**
+**		Modal
+**
+*****************************************************************************/
+
+.modal-content {
+	border-radius: budget-calc(4, 16, em);
+}
+
+.budget-modal-module {
+
+	/*****************************************************************************
+	**		Header
+	*****************************************************************************/
+	.mod-header {
+		background: $blue;
+		border-radius: budget-calc(4, 16, em) budget-calc(4, 16, em) 0 0;
+		padding: budget-calc($padding-half, 16, em) budget-calc(60, 16, em) budget-calc($padding-half, 16, em) budget-calc($padding-default, 16, em);
+		position: relative;
+
+		h4 {
+			color: $white;
+			font-size: budget-calc(24, 16, em);
+			font-weight: 100;
+			letter-spacing: 1px;
+		}
+	}
+
+	.modal-close {
+		bottom: 0;
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+		text-align: center;
+		top: 0;
+		width: budget-calc(60, 16, em);
+
+		&:before {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+			width: 0;
+		}
+
+		.close-icon {
+			background: url('/static/images/icon_close_white_18x18.svg') center center no-repeat;
+			display: inline-block;
+			height: budget-calc(20, 16, em);
+			vertical-align: middle;
+			width: budget-calc(20, 16, em);
+		}
+	}
+
+
+	/*****************************************************************************
+	**		Body
+	*****************************************************************************/
+	.mod-body {
+		padding: 0;
+	}
+
+
+	/*****************************************************************************
+	**		Footer
+	*****************************************************************************/
+	.mod-footer {
+		border-top: 1px solid $blue;
+		border-radius: 0 0 budget-calc(4, 16, em) budget-calc(4, 16, em);
+		padding: 0;
+		text-align: right;
+
+		input[type="button"] {
+			margin-left: budget-calc(10, 16, em);
+		}
+
+		> .action-container {
+			background: $blue-darker;
+			background-size: 12px 20px;
+			padding: budget-calc($padding-half, 16, em) budget-calc($padding-default, 16, em);
+			position: relative;
+
+			&:before {
+				background: $blue-dark;
+				bottom: 0;
+				content: '';
+				left: 0;
+				position: absolute;
+				top: 0;
+				transition: all .15s ease-in-out;
+				width: 0;
+			}
+
+			.action-text {
+				color: $black-lighten-50;
+				font-weight: 100;
+				letter-spacing: 1px;
+				margin: 0;
+				text-align: right;
+				transition: all .15s ease-in-out;
+
+				> span, > svg {
+					display: inline-block;
+					vertical-align: middle;
+				}
+
+				> span {
+					padding-right: budget-calc($padding-half, 16, em);
+				}
+
+				.chevron-right {
+					fill: $black-lighten-50;
+					transition: all .15s ease-in-out;
+				}
+			}
+
+			&.disabled {
+				cursor: auto;
+			}
+
+			&.valid {
+				cursor: pointer;
+
+				&:before {
+					width: 5px;
+				}
+
+				&:hover {
+
+					&:before {
+						width: 10px;
+					}
+				}
+
+				.action-text {
+					color: $white;
+
+					.chevron-right {
+						fill: $white;
+					}
+				}
+			}
+
+			&.processing {
+
+				&:before {
+					width: 100%;
+				}
+
+				&:hover {
+
+					&:before {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+
+	/*****************************************************************************
+	**		Warning Modal
+	*****************************************************************************/
+	&.warning-modal {
+
+		.mod-header {
+			background: $red;
+		}
+
+		.mod-footer {
+			border-top: 1px solid $red;
+
+			> .action-container {
+				background: $red-darker;
+
+				&:before {
+					background: $red-dark;
+				}
+			}
+		}
+	}
+}

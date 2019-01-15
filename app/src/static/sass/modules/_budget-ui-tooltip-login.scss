@@ -1,0 +1,171 @@
+/*****************************************************************************
+**
+**		Tooltip Login
+**
+*****************************************************************************/
+.login-tooltip {
+	box-shadow: 0 0 15px rgba(0, 0, 0, .25);
+	position: absolute;
+	right: budget-calc($padding-default, 16, em);
+	top: 100%;
+
+	&:before {
+		border: 10px solid transparent;
+		border-bottom-color: $blue;
+		content: '';
+		height: 0;
+		position: absolute;
+		right: 10px;
+		top: -19px;
+		width: 0;
+	}
+
+	.mod-body {
+		border-radius: 0;
+	}
+}
+
+.login-tooltip-module {
+	width: budget-calc(300, 16, em);
+
+	.mod-header {
+		background: $blue;
+		border-radius: budget-calc(4, 16, em) budget-calc(4, 16, em) 0 0;
+		padding: budget-calc($padding-half, 16, em) budget-calc($padding-default, 16, em);
+
+		h5 {
+			color: $white;
+		}
+	}
+
+	/*****************************************************************************
+	**		Body Styles
+	*****************************************************************************/
+	.mod-body {
+		background: $blue-dark;
+		padding: budget-calc($padding-half, 16, em) budget-calc($padding-default, 16, em);
+	}
+
+	.input-label {
+		color: $white;
+	}
+
+	input[type="password"], input[type="email"] {
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid $blue-darker;
+		color: $white;
+		font-weight: 100;
+		padding-left: 0;
+
+		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			color: $white;
+			font-weight: 100;
+		}
+		&::-moz-placeholder { /* Firefox 19+ */
+			color: $white;
+			font-weight: 100;
+		}
+		&:-ms-input-placeholder { /* IE 10+ */
+			color: $white;
+			font-weight: 100;
+		}
+		&:-moz-placeholder { /* Firefox 18- */
+			color: $white;
+			font-weight: 100;
+		}
+	}
+
+	.invalid-login-info {
+		padding-bottom: 0;
+	}
+
+
+	/*****************************************************************************
+	**		Footer Styles
+	*****************************************************************************/
+	.mod-footer {
+		padding: 0;
+	}
+
+	.form-action-container {
+		background: $blue-darker;
+		background-size: 12px 20px;
+		padding: budget-calc($padding-half, 16, em) budget-calc($padding-default, 16, em);
+		position: relative;
+
+		&:before {
+			background: $blue-dark;
+			bottom: 0;
+			content: '';
+			left: 0;
+			position: absolute;
+			top: 0;
+			transition: all .15s ease-in-out;
+			width: 0;
+		}
+
+		.action-text {
+			color: $black-lighten-50;
+			font-weight: 100;
+			margin: 0;
+			text-align: right;
+			transition: all .15s ease-in-out;
+
+			> span, > svg {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			> span {
+				padding-right: budget-calc($padding-half, 16, em);
+			}
+
+			.chevron-right {
+				fill: $black-lighten-50;
+				transition: all .15s ease-in-out;
+			}
+		}
+
+		&.disabled {
+			cursor: auto;
+		}
+
+		&.valid {
+			cursor: pointer;
+
+			&:before {
+				width: 5px;
+			}
+
+			&:hover {
+
+				&:before {
+					width: 10px;
+				}
+			}
+
+			.action-text {
+				color: $white;
+
+				.chevron-right {
+					fill: $white;
+				}
+			}
+		}
+
+		&.processing {
+
+			&:before {
+				width: 100%;
+			}
+
+			&:hover {
+
+				&:before {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

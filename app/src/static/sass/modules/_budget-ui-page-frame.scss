@@ -1,0 +1,24 @@
+/*****************************************************************************
+**
+**		Page Frame
+**
+*****************************************************************************/
+.page-frame {
+	padding-left: budget-calc(60, 16, em);
+    padding-top: budget-calc(60, 16, em);
+    position: relative;
+    transition: padding-left .15s ease-in-out;
+
+    &.active {
+        padding-left: budget-calc($sideboard-padding-small, 100, "%");
+
+        @media screen and ( min-width: 640px ) {
+            padding-left: budget-calc($sideboard-padding-medium, 16, "em");
+        }
+    }
+}
+
+
+.content-frame {
+    display: block;
+}

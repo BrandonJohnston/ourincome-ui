@@ -1,0 +1,57 @@
+<div class="create-account-module general-module">
+	<div class="mod-header-wrapper">
+		<div class="mod-header">
+			<h4 translate="budget.ACCOUNT.CREATE.HEADER"></h4>
+		</div>
+	</div>
+	<div class="mod-body-wrapper">
+		<div class="mod-body">
+			<form class="add-account-form" name="addAccountForm" novalidate>
+				<ul>
+					<li>
+						<label class="input-label" translate="budget.ACCOUNT.CREATE.ACCT_NAME_LABEL"></label>
+						<input type="text"
+							   placeholder="{{'budget.ACCOUNT.CREATE.ACCT_NAME_PLACEHOLDER' | translate}}"
+							   name="acctName"
+							   ng-model="vm.accountData.acctName"
+							   ng-change="vm.checkAccountName()"
+							   required
+							   ng-class="{'ng-invalid': vm.accountData.acctNameError}"
+							   ng-focus="vm.accountData.acctNameError = false" />
+
+						<div class="form-errors" ng-if="addAccountForm.acctName.$invalid && addAccountForm.acctName.$dirty">
+							<p class="error" ng-if="addAccountForm.acctName.$error.required && addAccountForm.acctName.$dirty"
+							   translate="budget.ACCOUNT.CREATE.ERROR_NAME_REQUIRED"></p>
+							<p class="error" ng-if="addAccountForm.acctName.$error.duplicate && addAccountForm.acctName.$dirty"
+							   translate="budget.ACCOUNT.CREATE.ERROR_NAME_DUPLICATE"></p>
+						</div>
+					</li>
+					<li>
+						<label class="input-label" translate="budget.ACCOUNT.CREATE.ACCT_BALANCE_LABEL"></label>
+						<input type="text"
+							   placeholder="{{'budget.ACCOUNT.CREATE.ACCT_BALANCE_PLACEHOLDER' | translate}}"
+							   oi-currency-format
+							   name="acctBalance"
+							   ng-model="vm.accountData.acctBalance"
+							   required
+							   ng-class="{'ng-invalid': vm.accountData.acctBalanceError}"
+							   ng-focus="vm.accountData.acctBalanceError = false" />
+
+						<div class="form-errors" ng-if="addAccountForm.acctBalance.$invalid && addAccountForm.acctBalance.$dirty">
+							<p class="error" ng-if="addAccountForm.acctBalance.$error.required && addAccountForm.acctBalance.$dirty"
+							   translate="budget.ACCOUNT.CREATE.ERROR_BALANCE_REQUIRED"></p>
+						</div>
+					</li>
+					<li>
+						<input type="button"
+							   class="button-submit"
+							   ng-class="{'button-disabled': addAccountForm.$invalid || vm.loginData.loginError, 'processing': vm.loginData.processing}"
+							   ng-disabled="loginForm.$invalid || vm.loginData.loginError"
+							   ng-click="vm.createAccount()"
+							   value="{{'budget.ACCOUNT.CREATE.ADD_BUTTON' | translate}}" />
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</div>

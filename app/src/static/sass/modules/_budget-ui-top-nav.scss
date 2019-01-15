@@ -1,0 +1,77 @@
+/*****************************************************************************
+**
+**		Top Nav Module
+**
+*****************************************************************************/
+.top-nav-module {
+    background: $white;
+	border-bottom: 1px solid $gray;
+    height: budget-calc(60, 16, em);
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+
+    .side-nav-toggle {
+		background: $blue-dark;
+        color: $white;
+        cursor: pointer;
+        display: inline-block;
+		font-size: budget-calc(14, 16, em);
+		height: budget-calc(60, 14, em);
+		line-height: 1;
+        padding: budget-calc(23, 14, em) budget-calc(20, 14, em);
+		text-align: center;
+        transition: all .15s ease-in-out;
+        vertical-align: top;
+		width: budget-calc(60, 14, em);
+
+		&:hover, &.active {
+			background: $blue-darker;
+		}
+
+		.icon-toggle {
+			background: url('/static/images/icon_toggle_white_20x14.svg') center center no-repeat;
+			display: inline-block;
+			height: budget-calc(14, 14, em);
+			width: budget-calc(20, 14, em);
+		}
+    }
+
+    .page-title {
+        cursor: pointer;
+        display: inline-block;
+		font-size: budget-calc(14, 16, em);
+        height: 100%;
+        padding: 0 budget-calc(20, 14, em);
+        transition: all .15s ease-in-out;
+        vertical-align: top;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        span {
+            display: inline-block;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+    }
+
+	.user-nav-container {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.user-nav-toggle {
+		cursor: pointer;
+		font-size: budget-calc(14, 16, em);
+		line-height: budget-calc(20, 14, em);
+		padding: budget-calc(20, 14, em);
+	}
+}

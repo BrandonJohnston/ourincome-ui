@@ -1,0 +1,32 @@
+<div class="budget-option-dropdown"
+     ng-class="{'option-block': vm.selectConfig.displayMode ==='block',
+				 'option-inline-block': vm.selectConfig.displayMode ==='inline-block',
+				 'active': vm.isListOpen,
+				 'disabled': vm.dropdownDisabled,
+				 'multi-select': vm.selectConfig.multiSelect}">
+    <label class="input-label">{{vm.selectConfig.label}}</label>
+    <div class="selected-option" ng-click="vm.toggleOptionList()">
+        <span class="selected-option-text">{{vm.selectedOption.name}}</span>
+        <div class="option-toggle"></div>
+    </div>
+    <ul class="option-list">
+        <li class="option-list-item" ng-repeat="option in vm.selectOptions track by $index"
+				ng-hide="vm.selectConfig.multiSelect && option.id === '0'">
+
+            <div class="text-container"
+				 ng-click="vm.selectOption(option)" ng-class="{'selected': vm.isOptionSelected(option)}">
+                <p class="option-text">{{option.name}}</p>
+            </div>
+
+			<ul class="options-sub-list" ng-if="option.children">
+
+				<li class="option-sub-list-item" ng-repeat="childOption in option.children track by childOption.id">
+					<div class="text-container"
+						 ng-click="vm.selectOption(childOption)" ng-class="{'selected': vm.isOptionSelected(childOption)}">
+						<p class="option-text">{{childOption.name}}</p>
+					</div>
+				</li>
+			</ul>
+        </li>
+    </ul>
+</div>

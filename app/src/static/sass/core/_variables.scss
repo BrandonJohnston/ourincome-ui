@@ -1,0 +1,58 @@
+/*****************************************************************************
+**
+**		Variables
+**
+*****************************************************************************/
+
+// Teal
+$teal: #009fb6;
+$teal-darken-10: #0092a7;
+$teal-darken-20: #008396;
+
+
+// Blue
+$blue: #54a5e2;
+$blue-dark: #478abd;
+$blue-darker: #1b507a;
+
+$blue-light: #94b6d0;
+$blue-lighter: #a3ceee;
+
+
+// Red
+$red: #f44542;
+$red-dark: #ba2f2c;
+$red-darker: #8c2321;
+
+
+// Black / Grays
+$black: #000;
+$black-lighten-50: lighten($black, 50%);
+$black-lighten-90: lighten($black, 90%);
+
+$gray: #e0e0e0;
+
+
+
+// Generic Colors
+$white: #fff;
+$offwhite: #f5f5f5;
+
+
+
+
+// Brand Colors
+$brand-primary: $teal;
+$background-primary: $offwhite;
+$error: #e73333;
+
+
+// Other
+$padding-default: 20;
+$padding-half: 10;
+
+$sideboard-padding-small: 100;
+$sideboard-padding-medium: 300;
+
+$rightpanel-padding-small: 100;
+$rightpanel-padding-medium: 300;

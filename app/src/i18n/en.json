@@ -1,0 +1,142 @@
+{
+    "budget": {
+        "TITLE": "OurIncome",
+        "GENERAL": {
+            "NAME": "Name",
+            "EMAIL": "Email",
+            "PASSWORD": "Password",
+			"WARNING": "Warning"
+        },
+		"BUDGET_MODAL": {
+			"HEADER": "Modal",
+			"PRIMARY_BUTTON": "Submit",
+			"SECONDARY_BUTTON": "Cancel"
+		},
+        "TOP_NAV": {
+            "HEADER": "OurIncome",
+			"LOGIN": "LOGIN"
+        },
+		"USER_NAV_TOOLTIP": {
+			"HEADER": "Options",
+			"MANAGE_ACCOUNT": "Manage Account",
+			"LOGOUT": "Logout"
+		},
+        "SIDEBOARD": {
+            "VIEW": {
+                "HEADER": "View",
+                "HOME": "Home",
+                "DASHBOARD": "Dashboard",
+				"LOGIN": "Login",
+				"SIGNUP": "Signup"
+            },
+            "CREATE": {
+                "HEADER": "Create",
+				"ACCOUNT": "Add Account"
+            }
+        },
+        "HOME": {
+            "HEADER": "Homepage"
+        },
+        "SIGNUP_FORM": {
+            "HEADER": "Signup",
+			"FIRST_NAME_LABEL": "First Name:",
+			"FIRST_NAME_PLACEHOLDER": "First Name",
+			"LAST_NAME_LABEL": "Last Name:",
+			"LAST_NAME_PLACEHOLDER": "Last Name",
+			"ERROR_NAME_REQUIRED": "A name is required.",
+			"EMAIL_LABEL": "Email:",
+			"EMAIL_PLACEHOLDER": "Email",
+			"ERROR_EMAIL_REQUIRED": "Email address is required.",
+			"ERROR_EMAIL_INVALID": "Not a valid email address.",
+			"PASSWORD_LABEL": "Password:",
+			"PASSWORD_PLACEHOLDER": "Password",
+            "ERROR_PASSWORD_REQUIRED": "Password is required.",
+            "SIGNUP_BUTTON": "Signup",
+            "ERROR_EMAIL_EXISTS": "This email address already has an account."
+        },
+        "LOGIN_FORM": {
+            "HEADER": "Login",
+			"EMAIL_LABEL": "Email:",
+			"EMAIL_PLACEHOLDER": "Email",
+			"ERROR_EMAIL_REQUIRED": "Email address is required.",
+			"ERROR_EMAIL_INVALID": "Not a valid email address.",
+			"PASSWORD_LABEL": "Password:",
+			"PASSWORD_PLACEHOLDER": "Password",
+            "ERROR_PASSWORD_REQUIRED": "Password is required.",
+            "LOGIN_BUTTON": "Login",
+            "ERROR_LOGIN_ERROR": "Your email or password is incorrect."
+        },
+        "DASHBOARD": {
+            "HEADER": "Dashboard"
+        },
+		"ACCOUNT": {
+			"CREATE": {
+				"HEADER": "Add new account",
+				"ACCT_NAME_LABEL": "Account Name:",
+				"ACCT_NAME_PLACEHOLDER": "Account Name",
+				"ERROR_NAME_REQUIRED": "An account name is required.",
+				"ERROR_NAME_DUPLICATE": "An account with this name already exists.",
+				"ACCT_BALANCE_LABEL": "Account Beginning Balance:",
+				"ACCT_BALANCE_PLACEHOLDER": "Account Beginning Balance",
+				"ERROR_BALANCE_REQUIRED": "An account balance is required.",
+				"ADD_BUTTON": "Add Account"
+			},
+			"VIEW": {
+				"SUBHEAD": {
+					"TRANSACTIONS": "Transactions",
+					"BUDGET": "Budget"
+				},
+				"DATE_COL_HEADER": "Date",
+				"NAME_COL_HEADER": "Name",
+				"AMOUNT_COL_HEADER": "Amount",
+				"ADD_TRANSACTIONS": "Add Transactions",
+				"OPTIONS_POPOVER": {
+					"HEADER": "Options",
+					"DELETE": "Delete",
+					"EDIT": "Edit"
+				}
+			},
+			"SIDE_PANEL": {
+				"HEADER_ADD": "Add Transaction",
+				"TRANSACTION_TYPE": "Transaction Type:",
+				"INCOME": "Income",
+				"EXPENSE": "Expense",
+				"TRANS_DATE_LABEL": "Transaction Date:",
+				"DATE_POPUP_CLOSE": "Close",
+				"TRANS_NAME_LABEL": "Transaction Name:",
+				"TRANS_NAME_PLACEHOLDER": "Transaction Name",
+				"TRANS_NAME_REQUIRED": "A transaction name is required.",
+				"TRANS_AMOUNT_LABEL": "Transaction Amount:",
+				"TRANS_AMOUNT_PLACEHOLDER": "Transaction Amount",
+				"TRANS_AMOUNT_REQUIRED": "A transaction amount is required.",
+				"TRANS_TAGS_LABEL": "Tags:",
+				"DEFAULT_TAG": "Select a Tag",
+				"TRANS_NOTE_LABEL": "Transaction Note:",
+				"TRANS_NOTE_PLACEHOLDER": "Transaction Note",
+				"ADD_TRANSACTION": "Add Transaction",
+				"RESET_TRANSACTION": "Reset",
+				"TAG_POPOVER": {
+					"HEADER": "Edit Tag Value",
+					"VALUE_TYPE": "Value Type",
+					"PERCENT": "Percent",
+					"CURRENCY": "Currency",
+					"TAG_PERCENT_LABEL": "New Percent Value",
+					"PERCENT_PLACEHOLDER": "New Percent Value",
+					"TAG_CURRENCY_LABEL": "New Currency Value",
+					"CURRENCY_PLACEHOLDER": "New Currency Value",
+					"UPDATE_TAG_ACTION": "Update Value"
+				}
+			},
+			"EDIT_TRANSACTION_MODAL": {
+				"HEADER": "Edit Transaction",
+				"SAVE_ACTION": "Save"
+			},
+			"DELETE_TRANSACTION_MODAL": {
+				"HEADER": "Warning",
+				"PRIMARY_ACTION": "Delete Transaction",
+				"DELETE_TEXT": "Are you sure you wish to delete the following transaction:",
+				"UNDONE": "This action cannot be undone."
+			}
+		}
+    }
+}

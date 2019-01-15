@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="budget.ui" ng-controller="mainController as vm">
+    <head>
+        <base href="/index.html" />
+        <title translate="budget.TITLE"></title>
+        <link rel=stylesheet href="./vendor/vendor.css" />
+        <link rel=stylesheet href="./static/sass/budget.min.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <div class="page-frame" ng-class="{'active': vm.isSideboardOpen}">
+            <budget-top-nav></budget-top-nav>
+            <budget-sideboard></budget-sideboard>
+			<div class="loading-mask" ng-if="vm.checkIsUserLoading()"></div>
+            <div ui-view="" class="content-frame" ng-if="!vm.checkIsUserLoading()"></div>
+        </div>
+
+        <!-- Single vendor.js file for all third party dependencies -->
+        <script type=text/javascript src="./vendor/vendor.js"></script>
+
+        <!-- The JS file for this application -->
+        <script type=text/javascript src="./budget-ui.js"></script>
+    </body>
+</html>

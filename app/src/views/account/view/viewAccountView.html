@@ -1,0 +1,9 @@
+<div class="view-account-module general-module">
+	<div class="loading" ng-if="!vm.isReady">
+		<span>add some type of loading...</span>
+	</div>
+	<div class="view-account-main-content" ng-if="vm.isError">
+		<span>add some type of error message here</span>
+	</div>
+	<div ui-view="" ng-if="vm.isReady"></div>
+</div>

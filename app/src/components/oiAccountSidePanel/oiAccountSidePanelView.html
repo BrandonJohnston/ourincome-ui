@@ -1,0 +1,119 @@
+<div class="account-side-panel-module general-module">
+	<div class="mod-header-wrapper">
+		<div class="mod-header">
+			<h4 translate="budget.ACCOUNT.SIDE_PANEL.HEADER_ADD"></h4>
+		</div>
+	</div>
+	<div class="mod-body-wrapper">
+		<div class="mod-body">
+			<form class="add-transaction-form" name="newTransactionForm" novalidate>
+				<ul class="new-transaction-list">
+					<li class="trans-type-item">
+						<div ng-if="vm.transactionTypeDropdown.transactionTypes">
+							<budget-option-dropdown config="vm.transactionTypeDropdown.config"
+													select-options="vm.transactionTypeDropdown.transactionTypes"
+													ng-model="vm.transactionTypeDropdown.selectedTransaction"></budget-option-dropdown>
+						</div>
+					</li>
+					<li class="trans-date-item">
+						<label class="input-label" translate="budget.ACCOUNT.SIDE_PANEL.TRANS_DATE_LABEL"></label>
+						<div class="form-input-group">
+							<input type="text"
+								   uib-datepicker-popup="{{vm.datepicker.dateFormat}}"
+								   ng-model="vm.datepicker.selectedDate.selectedDate"
+								   is-open="vm.datepicker.opened"
+								   datepicker-options="vm.datepicker.dateOptions"
+								   ng-required="true"
+								   close-text="{{'budget.ACCOUNT.SIDE_PANEL.DATE_POPUP_CLOSE' | translate}}" />
+							<div class="option-toggle" ng-click="vm.openDatePicker()"></div>
+						</div>
+					</li>
+					<li class="trans-name-item">
+						<label class="input-label" translate="budget.ACCOUNT.SIDE_PANEL.TRANS_NAME_LABEL"></label>
+						<div class="input-wrapper">
+							<input type="text"
+								   placeholder="{{'budget.ACCOUNT.SIDE_PANEL.TRANS_NAME_PLACEHOLDER' | translate}}"
+								   name="transactionName"
+								   ng-model="vm.transactionData.transName"
+								   required />
+							<div class="tooltip tooltip-right tooltip-error no-break" ng-if="newTransactionForm.transactionName.$invalid && newTransactionForm.transactionName.$dirty">
+								<p class="error" ng-if="newTransactionForm.transactionName.$error.required && newTransactionForm.transactionName.$dirty"
+								   translate="budget.ACCOUNT.SIDE_PANEL.TRANS_NAME_REQUIRED"></p>
+							</div>
+						</div>
+					</li>
+					<li class="trans-amount-item">
+						<label class="input-label" translate="budget.ACCOUNT.SIDE_PANEL.TRANS_AMOUNT_LABEL"></label>
+						<div class="input-wrapper">
+							<input type="text"
+								   placeholder="{{'budget.ACCOUNT.SIDE_PANEL.TRANS_AMOUNT_PLACEHOLDER' | translate}}"
+								   oi-currency-format
+								   name="transactionAmount"
+								   ng-model="vm.transactionData.transAmount"
+								   ng-click="vm.closeTagEdit()"
+								   required />
+							<div class="tooltip tooltip-right tooltip-error no-break" ng-if="newTransactionForm.transactionAmount.$invalid && newTransactionForm.transactionAmount.$dirty">
+								<p class="error" ng-if="newTransactionForm.transactionAmount.$error.required && newTransactionForm.transactionAmount.$dirty"
+								   translate="budget.ACCOUNT.SIDE_PANEL.TRANS_AMOUNT_REQUIRED"></p>
+							</div>
+						</div>
+					</li>
+
+					<li class="trans-tags-item">
+						<div ng-if="vm.tagsDropdown.tags">
+							<budget-option-dropdown config="vm.tagsDropdown.config"
+													select-options="vm.tagsDropdown.tags"
+													ng-model="vm.tagsDropdown.selectedTag"
+													dropdown-disabled="vm.isTagDropdownDisabled()"
+													change-fn="vm.toggleTag(value)"></budget-option-dropdown>
+						</div>
+						<div ng-if="vm.transactionData.transTags.length > 0">
+							<p ng-repeat="tag in vm.transactionData.transTags track by $index"
+							   class="trans-tag">
+								<span class="tag-name">{{tag.name}}</span>
+								<span class="tag-amount"
+									  ng-if="tag.valType === 'P'">{{tag.valAmount}}%</span>
+								<span class="tag-amount"
+									  ng-if="tag.valType === 'C'">{{tag.valAmount | currency}}</span>
+								<span class="tag-edit" ng-click="vm.editTagValue(tag)">E</span>
+								<budget-popover ng-if="tag.id === vm.openTagRow && vm.editTagIsOpen"
+												config="vm.tagPopoverConfig"
+												close="vm.closeTagEdit(apply)"></budget-popover>
+							</p>
+						</div>
+					</li>
+
+					<li class="trans-note-item">
+						<label class="input-label" translate="budget.ACCOUNT.SIDE_PANEL.TRANS_NOTE_LABEL"></label>
+						<div class="input-wrapper">
+							<input type="text"
+								   placeholder="{{'budget.ACCOUNT.SIDE_PANEL.TRANS_NOTE_PLACEHOLDER' | translate}}"
+								   name="transactionNote"
+								   ng-model="vm.transactionData.transNote" />
+						</div>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	<div class="mod-footer-wrapper">
+		<div class="mod-footer">
+			<div class="action-container"
+				 ng-class="{'disabled': newTransactionForm.$invalid || vm.transactionData.transError,
+				 			'processing': vm.transactionData.transProcessing,
+				 			'valid': vm.isTransactionValid()}"
+				 ng-click="vm.addTransaction()">
+
+				<p class="action-text">
+					<span translate="budget.ACCOUNT.SIDE_PANEL.ADD_TRANSACTION">}</span>
+					<svg version="1.1" id="Layer_1" class="chevron-right" xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 12 20">
+						<g transform="translate(2043.3,-1800)">
+							<path class="chevron-right-svg" d="M-2043.3,1818.5l-0.4-0.4l4.1-4.1l4.1-4.1l-4.1-4.1l-4.1-4.1l0.4-0.4l0.4-0.4l4.5,4.5l4.5,4.5l-4.5,4.5
+								l-4.5,4.5L-2043.3,1818.5L-2043.3,1818.5z"/>
+						</g>
+					</svg>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

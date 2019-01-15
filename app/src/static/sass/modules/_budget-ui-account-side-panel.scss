@@ -1,0 +1,164 @@
+/*****************************************************************************
+**
+**		Account Side Panel Module
+**
+*****************************************************************************/
+.account-side-panel-module {
+	background: $white;
+
+
+	/*****************************************************************************
+    **		Header
+    *****************************************************************************/
+	.mod-header {
+		border-bottom: 1px solid $gray;
+
+		h4 {
+			font-size: budget-calc(28, 16, em);
+			font-weight: 100;
+		}
+	}
+
+
+	.trans-date-item {
+
+		*:focus {
+			outline: none;
+		}
+	}
+
+	.trans-tag {
+		border-top: 1px solid gray;
+		display: flex;
+		font-size: budget-calc(12, 16, em);
+		margin: 0;
+		padding: budget-calc(6, 12, em) budget-calc(34, 12, em) budget-calc(6, 12, em) budget-calc(6, 12, em);
+		position: relative;
+
+		&:first-child {
+			border: none;
+		}
+
+		.tag-name {
+			flex-grow: 2;
+			order: 0;
+		}
+
+		.tag-amount {
+			flex-grow: 1;
+			order: 1;
+			text-align: right;
+		}
+
+		.tag-edit {
+			cursor: pointer;
+			position: absolute;
+			right: 0;
+			text-align: center;
+			width: budget-calc(34, 12, em);
+		}
+
+		.budget-popover-module {
+			font-size: budget-calc(16, 12, em);
+		}
+	}
+
+
+	/*****************************************************************************
+	**		Footer
+	*****************************************************************************/
+	.mod-footer {
+		border-top: 1px solid $blue;
+		border-radius: 0 0 budget-calc(4, 16, em) budget-calc(4, 16, em);
+		padding: 0;
+		text-align: right;
+
+		input[type="button"] {
+			margin-left: budget-calc(10, 16, em);
+		}
+
+		> .action-container {
+			background: $blue-darker;
+			background-size: 12px 20px;
+			padding: budget-calc($padding-half, 16, em) budget-calc($padding-default, 16, em);
+			position: relative;
+
+			&:before {
+				background: $blue-dark;
+				bottom: 0;
+				content: '';
+				left: 0;
+				position: absolute;
+				top: 0;
+				transition: all .15s ease-in-out;
+				width: 0;
+			}
+
+			.action-text {
+				color: $black-lighten-50;
+				font-weight: 100;
+				letter-spacing: 1px;
+				margin: 0;
+				text-align: right;
+				transition: all .15s ease-in-out;
+
+				> span, > svg {
+					display: inline-block;
+					vertical-align: middle;
+				}
+
+				> span {
+					padding-right: budget-calc($padding-half, 16, em);
+					vertical-align: top;
+				}
+
+				.chevron-right {
+					fill: $black-lighten-50;
+					transition: all .15s ease-in-out;
+				}
+			}
+
+			&.disabled {
+				cursor: auto;
+			}
+
+			&.valid {
+				cursor: pointer;
+
+				&:before {
+					width: 5px;
+				}
+
+				&:hover {
+
+					&:before {
+						width: 10px;
+					}
+				}
+
+				.action-text {
+					color: $white;
+
+					.chevron-right {
+						fill: $white;
+					}
+				}
+			}
+
+			&.processing {
+
+				&:before {
+					width: 100%;
+				}
+
+				&:hover {
+
+					&:before {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+

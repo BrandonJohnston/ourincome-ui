@@ -1,0 +1,25 @@
+/*****************************************************************************
+**
+**		General Module
+**
+*****************************************************************************/
+.general-module {
+    position: relative;
+
+    .mod-header {
+        padding: budget-calc(20, 16, em);
+    }
+
+    .mod-body {
+        padding: budget-calc(20, 16, em);
+    }
+
+	.mod-footer {
+		padding: budget-calc(20, 16, em);
+	}
+
+    .limited-container {
+        margin: 0 auto;
+        max-width: budget-calc(400, 16, em);
+    }
+}

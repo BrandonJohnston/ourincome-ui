@@ -1,0 +1,111 @@
+/*****************************************************************************
+**
+**		Sideboard
+**
+*****************************************************************************/
+.sideboard {
+    bottom: 0;
+    left: 0;
+    padding-top: budget-calc(60, 16, em);
+    position: fixed;
+    top: 0;
+    width: budget-calc(60, 16, em);
+    z-index: 700;
+
+    @media screen and ( min-width: 640px ) {
+
+    }
+
+
+	/*****************************************************************************
+	**		Collapsed Content
+	*****************************************************************************/
+	.sideboard-minimal {
+		background: $blue;
+		bottom: 0;
+		left: 0;
+		padding-top: budget-calc(60, 16, em);
+		position: absolute;
+		top: 0;
+		width: budget-calc(60, 16, em);
+		z-index: 702;
+	}
+
+	.minimal-nav {
+		padding: budget-calc($padding-half, 16, em);
+
+		.sidebar-nav-item {
+			padding: budget-calc($padding-half, 16, em);
+			position: relative;
+			text-align: center;
+
+			// Create a false border that expands from the middle when a nav item is selected
+			&:after, &:before {
+				border-bottom: 1px solid $white;
+				bottom: 0;
+				content: '';
+				height: 0;
+				left: 50%;
+				position: absolute;
+				right: 50%;
+				transition: all .15s ease-in-out;
+			}
+
+			&.selected {
+
+				&:after {
+					left: 0;
+				}
+
+				&:before {
+					right: 0;
+				}
+			}
+		}
+
+		.nav-icon {
+			cursor: pointer;
+			display: block;
+			height: budget-calc(20, 16, em);
+			width: 100%;
+		}
+
+		.icon-home {
+			background: url('/static/images/icon_home_white_20x20.svg') center center no-repeat;
+		}
+
+		.icon-dashboard {
+			background: url('/static/images/icon_dashboard_white_20x20.svg') center center no-repeat;
+		}
+	}
+
+
+
+
+	/*****************************************************************************
+	**		Expanded Content
+	*****************************************************************************/
+	.sideboard-expanded {
+		background: $blue-dark;
+		bottom: 0;
+		left: budget-calc(-180, 16, em);
+		position: absolute;
+		transition: left .15s ease-in-out;
+		top: budget-calc(60, 16, em);
+		width: budget-calc(240, 16, em);
+		z-index: 701;
+
+		&.active {
+			left: budget-calc(60, 16, em);
+		}
+	}
+
+	.full-nav {
+		padding: budget-calc($padding-half, 16, em);
+
+		.sidebar-nav-item {
+			cursor: pointer;
+			padding: budget-calc($padding-half, 16, em);
+		}
+	}
+}

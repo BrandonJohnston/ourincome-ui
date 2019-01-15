@@ -1,0 +1,33 @@
+<div class="budget-modal-module general-module" ng-class="{'warning-modal': options.type === 'warning'}">
+	<div class="mod-header-wrapper">
+		<div class="mod-header">
+			<h4 class="modal-title" translate="{{options.headerText}}"></h4>
+			<div class="modal-close" ng-if="!options.hideTitleCloseButton">
+				<span class="close-icon" ng-click="close()"></span>
+			</div>
+		</div>
+	</div>
+	<div class="mod-body-wrapper">
+		<div class="mod-body" ng-include="options.contentTemplate"></div>
+	</div>
+	<div class="mod-footer-wrapper" ng-if="options.showActionButton || options.showCloseButton || options.additionalButtons.length > 0">
+		<div class="mod-footer">
+			<div class="action-container"
+				 ng-class="{'disabled': options.actionDisabled,
+				 			'processing': options.actionProcessing,
+				 			'valid': options.actionValid}"
+				 ng-click="ok()">
+
+				<p class="action-text">
+					<span>{{options.actionButtonText | translate}}</span>
+					<svg version="1.1" id="Layer_1" class="chevron-right" xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 12 20">
+						<g transform="translate(2043.3,-1800)">
+							<path class="chevron-right-svg" d="M-2043.3,1818.5l-0.4-0.4l4.1-4.1l4.1-4.1l-4.1-4.1l-4.1-4.1l0.4-0.4l0.4-0.4l4.5,4.5l4.5,4.5l-4.5,4.5
+								l-4.5,4.5L-2043.3,1818.5L-2043.3,1818.5z"/>
+						</g>
+					</svg>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

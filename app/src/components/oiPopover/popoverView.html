@@ -1,0 +1,22 @@
+<div class="budget-popover-module general-module {{vm.config.placement}}">
+	<div class="mod-header-wrapper" ng-if="vm.config.title">
+		<div class="mod-header">
+			<h5>{{vm.config.title}}</h5>
+			<div class="popover-close" ng-if="vm.close">
+				<span class="close-icon" ng-click="vm.close({apply: false})"></span>
+			</div>
+		</div>
+	</div>
+	<div class="mod-body-wrapper" ng-if="!vm.config.customTemplate">
+		<div class="mod-body">
+			<ul class="popover-options-list">
+				<li class="popover-options-item"
+					ng-repeat="option in vm.config.listOptions"
+					ng-click="option.onclick(vm.config.selectedRow)">
+					<p>{{option.text}}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div ng-if="vm.config.customTemplate" ng-include="vm.config.customTemplate"></div>
+</div>
