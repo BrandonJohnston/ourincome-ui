@@ -39,6 +39,17 @@ function sideboardController($rootScope, $log, $state, $stateParams, UserService
 	vm.userAccounts = null;
 
 
+	init();
+
+	function init() {
+
+		// Initialize state data and selected mini nav item
+		vm.stateDetails = $state.current;
+		vm.stateDetails.navParent = RouterService.getNavParentState($state.current.name);
+		vm.currentMiniNavItem = RouterService.getNavParentState($state.current.name);
+	}
+
+
 	/*******************************************************************
 	 * Public Functions
 	 *******************************************************************/

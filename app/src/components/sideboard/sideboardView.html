@@ -63,15 +63,23 @@
 				ng-if="vm.currentMiniNavItem === 'dashboard'"
 				ng-click="vm.navigate('dashboard')">
 
-				<span>Dashboard needs translation</span>
+				<span translate="budget.DASHBOARD.HEADER"></span>
 			</li>
+
 			<li class="sidebar-nav-item"
 				ng-repeat="account in vm.userAccounts"
 				ng-class="{'selected': vm.checkAccountActive(account.id)}"
-				ng-if="vm.currentMiniNavItem === 'account'"
+				ng-if="vm.currentMiniNavItem === 'account' && vm.userAccounts.length > 0"
 				ng-click="vm.navigate('account.view.transactions', account.id)">
 
 				<span>{{account.acct_name}}</span>
+			</li>
+			<li class="sidebar-nav-item"
+				ng-class="{'selected': vm.currentMiniNavItem === 'account.create'}"
+				ng-if="vm.currentMiniNavItem === 'account'"
+				ng-click="vm.navigate('account.create')">
+
+				<span translate="budget.ACCOUNT.CREATE.NAV_TEXT"></span>
 			</li>
 		</ul>
 	</section>

@@ -71,6 +71,7 @@
         },
 		"ACCOUNT": {
 			"CREATE": {
+				"NAV_TEXT": "Add New Account",
 				"HEADER": "Add new account",
 				"ACCT_NAME_LABEL": "Account Name:",
 				"ACCT_NAME_PLACEHOLDER": "Account Name",
