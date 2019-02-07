@@ -29,56 +29,38 @@ angular.module('budget.ui', [
                     templateUrl: 'views/home/homeView.html',
                     controller: 'homeViewController',
                     controllerAs: 'vm',
-                    stateLabel: 'budget.TITLE',
-		            params: {
-			            navParent: 'home'
-		            }
+                    stateLabel: 'budget.TITLE'
                 })
 				.state('login', {
 					url: '/login',
 					templateUrl: 'views/login/loginView.html',
-					stateLabel: 'budget.TITLE',
-		            params: {
-			            navParent: 'home'
-		            }
+					stateLabel: 'budget.TITLE'
 				})
 				.state('signup', {
 					url: '/signup',
 					templateUrl: 'views/signup/signupView.html',
-					stateLabel: 'budget.TITLE',
-		            params: {
-			            navParent: 'home'
-		            }
+					stateLabel: 'budget.TITLE'
 				})
                 .state('dashboard', {
                     url: '/dashboard',
                     templateUrl: 'views/dashboard/dashboardView.html',
                     controller: 'dashboardController',
                     controllerAs: 'vm',
-                    stateLabel: 'budget.TITLE',
-		            params: {
-			            navParent: 'dashboard'
-		            }
+                    stateLabel: 'budget.TITLE'
                 })
 				.state('account', {
 					url: '/account',
 					templateUrl: 'views/account/accountView.html',
 					controller: 'accountController',
 					controllerAs: 'vm',
-					stateLabel: 'budget.TITLE',
-		            params: {
-			            navParent: 'account'
-		            }
+					stateLabel: 'budget.TITLE'
 				})
 				.state('account.create', {
 					url: '/create',
 					templateUrl: 'views/account/create/createAccountView.html',
 					controller: 'createAccountController',
 					controllerAs: 'vm',
-					stateLabel: 'budget.TITLE',
-		            params: {
-			            navParent: 'account'
-		            }
+					stateLabel: 'budget.TITLE'
 				})
 				.state('account.view', {
 					url: '/view/:accountId',
@@ -93,20 +75,14 @@ angular.module('budget.ui', [
 					templateUrl: 'views/account/view/transactions/accountTransactionsView.html',
 					controller: 'accountTransactionsController',
 					controllerAs: 'vm',
-					stateLabel: 'budget.TITLE',
-		            params: {
-			            navParent: 'account'
-		            }
+					stateLabel: 'budget.TITLE'
 				})
 				.state('account.view.budget', {
 					url: '/budget',
 					templateUrl: 'views/account/view/budget/accountBudgetView.html',
 					controller: 'accountBudgetController',
 					controllerAs: 'vm',
-					stateLabel: 'budget.TITLE',
-		            params: {
-			            navParent: 'account'
-		            }
+					stateLabel: 'budget.TITLE'
 				})
                 ;
 

@@ -13,11 +13,12 @@ sideboardController.$inject = [
     '$state',
 	'$stateParams',
     'UserService',
+	'RouterService',
 	'AccountFactory'
 ];
 
 
-function sideboardController($rootScope, $log, $state, $stateParams, UserService, AccountFactory) {
+function sideboardController($rootScope, $log, $state, $stateParams, UserService, RouterService, AccountFactory) {
 
     var vm = this;
     $log.debug('sideboardController');
@@ -55,6 +56,8 @@ function sideboardController($rootScope, $log, $state, $stateParams, UserService
 
 			$state.go(newState);
 		}
+
+	    $rootScope.$broadcast('sideboardToggle');
     }
 
 
@@ -129,7 +132,8 @@ function sideboardController($rootScope, $log, $state, $stateParams, UserService
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
 
         vm.stateDetails = toState;
-	    vm.currentMiniNavItem = toState.params.navParent;
+	    vm.stateDetails.navParent = RouterService.getNavParentState(toState.name);
+	    vm.currentMiniNavItem = RouterService.getNavParentState(toState.name);
 
         // check user status when state changes
 		// may need to find a better way to check for updates to side nav

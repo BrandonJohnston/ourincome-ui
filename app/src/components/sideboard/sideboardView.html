@@ -5,7 +5,7 @@
 		<!-- Logged Out Minimal Nav -->
 		<ul class="minimal-nav" ng-if="!vm.userData.loggedin">
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.params.navParent === 'home'}"
+				ng-class="{'selected': vm.stateDetails.navParent === 'home'}"
 				ng-click="vm.toggleFullNav('home')">
 
 				<span class="icon-home nav-icon"></span>
@@ -15,13 +15,13 @@
 		<!-- Logged In Minimal Nav -->
 		<ul class="minimal-nav" ng-if="vm.userData.loggedin">
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.params.navParent === 'dashboard'}"
+				ng-class="{'selected': vm.stateDetails.navParent === 'dashboard'}"
 				ng-click="vm.toggleFullNav('dashboard')">
 
 				<span class="icon-dashboard nav-icon"></span>
 			</li>
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.params.navParent === 'account'}"
+				ng-class="{'selected': vm.stateDetails.navParent === 'account'}"
 				ng-click="vm.toggleFullNav('account')">
 
 				<span>A</span>
@@ -59,7 +59,7 @@
 		<!-- Logged In Full Nav -->
 		<ul class="full-nav" ng-if="vm.userData.loggedin">
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.params.navParent === 'dashboard'}"
+				ng-class="{'selected': vm.currentMiniNavItem === 'dashboard'}"
 				ng-if="vm.currentMiniNavItem === 'dashboard'"
 				ng-click="vm.navigate('dashboard')">
 
