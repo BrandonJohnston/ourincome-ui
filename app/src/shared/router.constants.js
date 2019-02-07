@@ -15,7 +15,9 @@
 				'ACCOUNT': 'account',
 				'ACCOUNT_CREATE': 'account.create',
 				'ACCOUNT_TRANSACTIONS': 'account.view.transactions',
-				'ACCOUNT_BUDGET': 'account.view.budget'
+				'ACCOUNT_BUDGET': 'account.view.budget',
+				'SETTINGS': 'settings',
+				'TAG_MANAGER': 'settings.tagManager'
 			}
 		});
 })();

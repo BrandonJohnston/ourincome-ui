@@ -23,7 +23,6 @@
 		},
         "SIDEBOARD": {
             "VIEW": {
-                "HEADER": "View",
                 "HOME": "Home",
                 "DASHBOARD": "Dashboard",
 				"LOGIN": "Login",

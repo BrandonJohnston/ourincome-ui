@@ -8,23 +8,40 @@
 				ng-class="{'selected': vm.stateDetails.navParent === 'home'}"
 				ng-click="vm.toggleFullNav('home')">
 
-				<span class="icon-home nav-icon"></span>
+				<div class="icon-wrapper">
+					<span class="icon-home nav-icon"></span>
+				</div>
 			</li>
 		</ul>
 
 		<!-- Logged In Minimal Nav -->
 		<ul class="minimal-nav" ng-if="vm.userData.loggedin">
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.navParent === 'dashboard'}"
+				ng-class="{'selected': vm.stateDetails.navParent === 'dashboard',
+					'highlight': vm.currentMiniNavItem === 'dashboard'}"
 				ng-click="vm.toggleFullNav('dashboard')">
 
-				<span class="icon-dashboard nav-icon"></span>
+				<div class="icon-wrapper">
+					<span class="icon-dashboard nav-icon"></span>
+				</div>
 			</li>
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.navParent === 'account'}"
+				ng-class="{'selected': vm.stateDetails.navParent === 'account',
+					'highlight': vm.currentMiniNavItem === 'account'}"
 				ng-click="vm.toggleFullNav('account')">
 
-				<span>A</span>
+				<div class="icon-wrapper">
+					<span>A</span>
+				</div>
+			</li>
+			<li class="sidebar-nav-item"
+				ng-class="{'selected': vm.stateDetails.navParent === 'settings',
+					'highlight': vm.currentMiniNavItem === 'settings'}"
+				ng-click="vm.toggleFullNav('settings')">
+
+				<div class="icon-wrapper">
+					<span>S</span>
+				</div>
 			</li>
 		</ul>
 	</section>
@@ -80,6 +97,14 @@
 				ng-click="vm.navigate('account.create')">
 
 				<span translate="budget.ACCOUNT.CREATE.NAV_TEXT"></span>
+			</li>
+
+			<li class="sidebar-nav-item"
+				ng-class="{'selected': vm.currentMiniNavItem === 'settings.tagManager'}"
+				ng-if="vm.currentMiniNavItem === 'settings'"
+				ng-click="vm.navigate('settings.tagManager')">
+
+				<span>Manage Tags</span>
 			</li>
 		</ul>
 	</section>

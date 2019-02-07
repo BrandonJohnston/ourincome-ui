@@ -44,6 +44,10 @@
 				case RouterConstants.ROUTE_PARENTS.ACCOUNT_BUDGET:
 					parentState = RouterConstants.ROUTE_PARENTS.ACCOUNT;
 					break;
+				case RouterConstants.ROUTE_PARENTS.SETTINGS:
+				case RouterConstants.ROUTE_PARENTS.TAG_MANAGER:
+					parentState = RouterConstants.ROUTE_PARENTS.SETTINGS;
+					break;
 			}
 
 			return parentState;
