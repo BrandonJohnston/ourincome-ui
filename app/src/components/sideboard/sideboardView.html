@@ -1,137 +1,78 @@
 <div class="sideboard">
 
 	<section class="sideboard-minimal">
-		<ul class="minimal-nav">
+
+		<!-- Logged Out Minimal Nav -->
+		<ul class="minimal-nav" ng-if="!vm.userData.loggedin">
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.name === 'home'}"
-				ng-if="!vm.userData.loggedin"
-				ng-click="vm.navigate('home')">
+				ng-class="{'selected': vm.stateDetails.params.navParent === 'home'}"
+				ng-click="vm.toggleFullNav('home')">
 
 				<span class="icon-home nav-icon"></span>
 			</li>
-			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.name === 'login'}"
-				ng-if="!vm.userData.loggedin"
-				ng-click="vm.navigate('login')">
+		</ul>
 
-				<span>L</span>
-			</li>
+		<!-- Logged In Minimal Nav -->
+		<ul class="minimal-nav" ng-if="vm.userData.loggedin">
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.name === 'signup'}"
-				ng-if="!vm.userData.loggedin"
-				ng-click="vm.navigate('signup')">
-
-				<span>S</span>
-			</li>
-			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.name === 'dashboard'}"
-				ng-if="vm.userData.loggedin"
-				ng-click="vm.navigate('dashboard')">
+				ng-class="{'selected': vm.stateDetails.params.navParent === 'dashboard'}"
+				ng-click="vm.toggleFullNav('dashboard')">
 
 				<span class="icon-dashboard nav-icon"></span>
 			</li>
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.checkAccountActive(account.id)}"
-				ng-if="vm.userData.loggedin"
-				ng-click="vm.navigate('account.view.transactions', account.id)"
-				ng-repeat="account in vm.userAccounts">
+				ng-class="{'selected': vm.stateDetails.params.navParent === 'account'}"
+				ng-click="vm.toggleFullNav('account')">
 
-				<span>{{account.acct_name}}</span>
+				<span>A</span>
 			</li>
 		</ul>
 	</section>
 
 	<section class="sideboard-expanded" ng-class="{'active': vm.isSideboardOpen}">
-		<ul class="full-nav">
+
+		<!-- Logged Out Full Nav -->
+		<ul class="full-nav" ng-if="!vm.userData.loggedin">
 			<li class="sidebar-nav-item"
 				ng-class="{'selected': vm.stateDetails.name === 'home'}"
-				ng-if="!vm.userData.loggedin"
+				ng-if="vm.currentMiniNavItem === 'home'"
 				ng-click="vm.navigate('home')">
 
 				<span translate="budget.SIDEBOARD.VIEW.HOME"></span>
 			</li>
 			<li class="sidebar-nav-item"
 				ng-class="{'selected': vm.stateDetails.name === 'login'}"
-				ng-if="!vm.userData.loggedin"
+				ng-if="vm.currentMiniNavItem === 'home'"
 				ng-click="vm.navigate('login')">
 
 				<span translate="budget.SIDEBOARD.VIEW.LOGIN"></span>
 			</li>
 			<li class="sidebar-nav-item"
 				ng-class="{'selected': vm.stateDetails.name === 'signup'}"
-				ng-if="!vm.userData.loggedin"
+				ng-if="vm.currentMiniNavItem === 'home'"
 				ng-click="vm.navigate('signup')">
 
 				<span translate="budget.SIDEBOARD.VIEW.SIGNUP"></span>
 			</li>
 		</ul>
+
+		<!-- Logged In Full Nav -->
+		<ul class="full-nav" ng-if="vm.userData.loggedin">
+			<li class="sidebar-nav-item"
+				ng-class="{'selected': vm.stateDetails.params.navParent === 'dashboard'}"
+				ng-if="vm.currentMiniNavItem === 'dashboard'"
+				ng-click="vm.navigate('dashboard')">
+
+				<span>Dashboard needs translation</span>
+			</li>
+			<li class="sidebar-nav-item"
+				ng-repeat="account in vm.userAccounts"
+				ng-class="{'selected': vm.checkAccountActive(account.id)}"
+				ng-if="vm.currentMiniNavItem === 'account'"
+				ng-click="vm.navigate('account.view.transactions', account.id)">
+
+				<span>{{account.acct_name}}</span>
+			</li>
+		</ul>
 	</section>
-
-	<!--<section>-->
-		<!--<div class="mod-header-wrapper">-->
-			<!--<div class="mod-header">-->
-				<!--<h4 translate="budget.SIDEBOARD.VIEW.HEADER"></h4>-->
-			<!--</div>-->
-		<!--</div>-->
-		<!--<div class="mod-body-wrapper">-->
-			<!--<div class="mod-body">-->
-				<!--<ul class="sidebar-nav">-->
-					<!--<li class="sidebar-nav-item"-->
-						<!--ng-class="{'selected': vm.stateDetails.name === 'home'}"-->
-						<!--ng-if="!vm.userData.loggedin"-->
-						<!--ng-click="vm.navigate('home')">-->
-
-						<!--<span translate="budget.SIDEBOARD.VIEW.HOME"></span>-->
-					<!--</li>-->
-					<!--<li class="sidebar-nav-item"-->
-						<!--ng-class="{'selected': vm.stateDetails.name === 'login'}"-->
-						<!--ng-if="!vm.userData.loggedin"-->
-						<!--ng-click="vm.navigate('login')">-->
-
-						<!--<span translate="budget.SIDEBOARD.VIEW.LOGIN"></span>-->
-					<!--</li>-->
-					<!--<li class="sidebar-nav-item"-->
-						<!--ng-class="{'selected': vm.stateDetails.name === 'signup'}"-->
-						<!--ng-if="!vm.userData.loggedin"-->
-						<!--ng-click="vm.navigate('signup')">-->
-
-						<!--<span translate="budget.SIDEBOARD.VIEW.SIGNUP"></span>-->
-					<!--</li>-->
-					<!--<li class="sidebar-nav-item"-->
-						<!--ng-class="{'selected': vm.stateDetails.name === 'dashboard'}"-->
-						<!--ng-if="vm.userData.loggedin"-->
-						<!--ng-click="vm.navigate('dashboard')">-->
-
-						<!--<span translate="budget.SIDEBOARD.VIEW.DASHBOARD"></span>-->
-					<!--</li>-->
-					<!--<li class="sidebar-nav-item"-->
-						<!--ng-class="{'selected': vm.checkAccountActive(account.id)}"-->
-						<!--ng-if="vm.userData.loggedin"-->
-						<!--ng-click="vm.navigate('account.view', account.id)"-->
-						<!--ng-repeat="account in vm.userAccounts">-->
-
-						<!--<span>{{account.acct_name}}</span>-->
-					<!--</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</section>-->
-
-	<!--<section ng-if="vm.userData.loggedin">-->
-		<!--<div class="mod-header-wrapper">-->
-			<!--<div class="mod-header">-->
-				<!--<h4 translate="budget.SIDEBOARD.CREATE.HEADER"></h4>-->
-			<!--</div>-->
-		<!--</div>-->
-		<!--<div class="mod-body-wrapper">-->
-			<!--<div class="mod-body">-->
-				<!--<ul class="sidebar-nav">-->
-					<!--<li class="sidebar-nav-item" ng-class="{'selected': vm.stateDetails.name === 'account.create'}"-->
-						<!--ng-click="vm.navigate('account.create')">-->
-						<!--<span translate="budget.SIDEBOARD.CREATE.ACCOUNT"></span>-->
-					<!--</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</section>-->
 </div>

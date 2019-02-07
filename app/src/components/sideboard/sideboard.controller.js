@@ -25,12 +25,14 @@ function sideboardController($rootScope, $log, $state, $stateParams, UserService
 
     // Setup functions
     vm.navigate = navigate;
+	vm.toggleFullNav = toggleFullNav;
     vm.checkUserData = checkUserData;
 	vm.checkAccountActive = checkAccountActive;
 
 
     // Setup variables
     vm.stateDetails = null;
+	vm.currentMiniNavItem = false;
     vm.isSideboardOpen = false;
     vm.userData = {};
 	vm.userAccounts = null;
@@ -45,8 +47,6 @@ function sideboardController($rootScope, $log, $state, $stateParams, UserService
      */
     function navigate(newState, stateParam) {
 
-		$log.debug('sideboard.controller :: navigate()');
-
 		// send user to new state
 		if (newState === 'account.view.transactions') {
 
@@ -56,6 +56,25 @@ function sideboardController($rootScope, $log, $state, $stateParams, UserService
 			$state.go(newState);
 		}
     }
+
+
+	/*
+	 * toggleFullNav - opens the full nav to a specific sub-section
+	 */
+	function toggleFullNav(clickedItem) {
+
+		var oldNav = vm.currentMiniNavItem;
+
+		if (!vm.isSideboardOpen ||
+			(vm.isSideboardOpen && clickedItem === oldNav)) {
+
+			// User clicked on a closed nav item,
+			// or on an open nav item that was already selected
+			$rootScope.$broadcast('sideboardToggle');
+		}
+
+		vm.currentMiniNavItem = clickedItem;
+	}
 
 
 	/*
@@ -110,6 +129,7 @@ function sideboardController($rootScope, $log, $state, $stateParams, UserService
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
 
         vm.stateDetails = toState;
+	    vm.currentMiniNavItem = toState.params.navParent;
 
         // check user status when state changes
 		// may need to find a better way to check for updates to side nav
