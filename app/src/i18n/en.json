@@ -137,6 +137,11 @@
 				"DELETE_TEXT": "Are you sure you wish to delete the following transaction:",
 				"UNDONE": "This action cannot be undone."
 			}
+		},
+		"SETTINGS": {
+			"TAG_MANAGER": {
+				"HEADER": "Manage Tags"
+			}
 		}
     }
 }

@@ -5,7 +5,8 @@
 		<!-- Logged Out Minimal Nav -->
 		<ul class="minimal-nav" ng-if="!vm.userData.loggedin">
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.navParent === 'home'}"
+				ng-class="{'selected': vm.stateDetails.navParent === 'home',
+					'highlight': vm.currentMiniNavItem === 'home'}"
 				ng-click="vm.toggleFullNav('home')">
 
 				<div class="icon-wrapper">
