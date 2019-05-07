@@ -6,11 +6,10 @@
 .sideboard {
     bottom: 0;
     left: 0;
-    padding-top: budget-calc(60, 16, em);
     position: fixed;
-    top: 0;
+    top: budget-calc(60, 16, em);
     width: budget-calc(60, 16, em);
-    z-index: 700;
+    z-index: 1001;
 
     @media screen and ( min-width: 640px ) {
 
@@ -24,47 +23,71 @@
 		background: $blue;
 		bottom: 0;
 		left: 0;
-		padding-top: budget-calc(60, 16, em);
 		position: absolute;
-		top: 0;
+		top: -1px;
 		width: budget-calc(60, 16, em);
 		z-index: 702;
+
+		&:before {
+			border-right: 1px solid $blue-darker;
+			bottom: 0;
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
 	}
 
 	.minimal-nav {
-		padding: budget-calc($padding-half, 16, em);
 
 		.sidebar-nav-item {
+			border-top: 1px solid transparent;
+			border-bottom: 1px solid transparent;
+			cursor: pointer;
 			padding: budget-calc($padding-half, 16, em);
 			position: relative;
 			text-align: center;
+			transition: all .15s ease-in-out;
 
-			// Create a false border that expands from the middle when a nav item is selected
-			&:after, &:before {
-				border-bottom: 1px solid $white;
-				bottom: 0;
-				content: '';
-				height: 0;
-				left: 50%;
-				position: absolute;
-				right: 50%;
-				transition: all .15s ease-in-out;
+			.icon-wrapper {
+				padding: budget-calc($padding-half, 16, em);
+				position: relative;
+
+				// Create a false border that expands from the middle when a nav item is selected
+				&:after, &:before {
+					border-bottom: 1px solid $white;
+					bottom: 0;
+					content: '';
+					height: 0;
+					left: 50%;
+					position: absolute;
+					right: 50%;
+					transition: all .15s ease-in-out;
+				}
+			}
+
+			&.highlight {
+				background: $blue-dark;
+				border-top-color: $blue-darker;
+				border-bottom-color: $blue-darker;
 			}
 
 			&.selected {
 
-				&:after {
-					left: 0;
-				}
+				.icon-wrapper {
 
-				&:before {
-					right: 0;
+					&:after {
+						left: 0;
+					}
+
+					&:before {
+						right: 0;
+					}
 				}
 			}
 		}
 
 		.nav-icon {
-			cursor: pointer;
 			display: block;
 			height: budget-calc(20, 16, em);
 			width: 100%;
@@ -91,7 +114,7 @@
 		left: budget-calc(-180, 16, em);
 		position: absolute;
 		transition: left .15s ease-in-out;
-		top: budget-calc(60, 16, em);
+		top: -1px;
 		width: budget-calc(240, 16, em);
 		z-index: 701;
 

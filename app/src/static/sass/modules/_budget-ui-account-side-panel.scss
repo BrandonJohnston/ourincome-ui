@@ -4,21 +4,8 @@
 **
 *****************************************************************************/
 .account-side-panel-module {
-	background: $white;
-
-
-	/*****************************************************************************
-    **		Header
-    *****************************************************************************/
-	.mod-header {
-		border-bottom: 1px solid $gray;
-
-		h4 {
-			font-size: budget-calc(28, 16, em);
-			font-weight: 100;
-		}
-	}
-
+	display: inline-block;
+	width: calc(30% - 10px);
 
 	.trans-date-item {
 
@@ -68,8 +55,6 @@
 	**		Footer
 	*****************************************************************************/
 	.mod-footer {
-		border-top: 1px solid $blue;
-		border-radius: 0 0 budget-calc(4, 16, em) budget-calc(4, 16, em);
 		padding: 0;
 		text-align: right;
 

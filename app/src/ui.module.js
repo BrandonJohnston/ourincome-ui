@@ -53,7 +53,8 @@ angular.module('budget.ui', [
 					templateUrl: 'views/account/accountView.html',
 					controller: 'accountController',
 					controllerAs: 'vm',
-					stateLabel: 'budget.TITLE'
+					stateLabel: 'budget.TITLE',
+		            abstract: true
 				})
 				.state('account.create', {
 					url: '/create',
@@ -84,6 +85,21 @@ angular.module('budget.ui', [
 					controllerAs: 'vm',
 					stateLabel: 'budget.TITLE'
 				})
+	            .state('settings', {
+		            url: '/settings',
+		            templateUrl: 'views/settings/settingsView.html',
+		            controller: 'settingsController',
+		            controllerAs: 'vm',
+		            stateLabel: 'budget.TITLE',
+		            abstract: true
+	            })
+	            .state('settings.tagManager', {
+		            url: '/tagManager',
+		            templateUrl: 'views/settings/tagManager/tagManagerView.html',
+		            controller: 'tagManagerController',
+		            controllerAs: 'vm',
+		            stateLabel: 'budget.TITLE'
+	            })
                 ;
 
 

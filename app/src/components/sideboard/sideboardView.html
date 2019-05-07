@@ -1,137 +1,112 @@
 <div class="sideboard">
 
 	<section class="sideboard-minimal">
-		<ul class="minimal-nav">
-			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.name === 'home'}"
-				ng-if="!vm.userData.loggedin"
-				ng-click="vm.navigate('home')">
 
-				<span class="icon-home nav-icon"></span>
+		<!-- Logged Out Minimal Nav -->
+		<ul class="minimal-nav" ng-if="!vm.userData.loggedin">
+			<li class="sidebar-nav-item"
+				ng-class="{'selected': vm.stateDetails.navParent === 'home',
+					'highlight': vm.currentMiniNavItem === 'home'}"
+				ng-click="vm.toggleFullNav('home')">
+
+				<div class="icon-wrapper">
+					<span class="icon-home nav-icon"></span>
+				</div>
+			</li>
+		</ul>
+
+		<!-- Logged In Minimal Nav -->
+		<ul class="minimal-nav" ng-if="vm.userData.loggedin">
+			<li class="sidebar-nav-item"
+				ng-class="{'selected': vm.stateDetails.navParent === 'dashboard',
+					'highlight': vm.currentMiniNavItem === 'dashboard'}"
+				ng-click="vm.toggleFullNav('dashboard')">
+
+				<div class="icon-wrapper">
+					<span class="icon-dashboard nav-icon"></span>
+				</div>
 			</li>
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.name === 'login'}"
-				ng-if="!vm.userData.loggedin"
-				ng-click="vm.navigate('login')">
+				ng-class="{'selected': vm.stateDetails.navParent === 'account',
+					'highlight': vm.currentMiniNavItem === 'account'}"
+				ng-click="vm.toggleFullNav('account')">
 
-				<span>L</span>
+				<div class="icon-wrapper">
+					<span>A</span>
+				</div>
 			</li>
 			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.name === 'signup'}"
-				ng-if="!vm.userData.loggedin"
-				ng-click="vm.navigate('signup')">
+				ng-class="{'selected': vm.stateDetails.navParent === 'settings',
+					'highlight': vm.currentMiniNavItem === 'settings'}"
+				ng-click="vm.toggleFullNav('settings')">
 
-				<span>S</span>
-			</li>
-			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.stateDetails.name === 'dashboard'}"
-				ng-if="vm.userData.loggedin"
-				ng-click="vm.navigate('dashboard')">
-
-				<span class="icon-dashboard nav-icon"></span>
-			</li>
-			<li class="sidebar-nav-item"
-				ng-class="{'selected': vm.checkAccountActive(account.id)}"
-				ng-if="vm.userData.loggedin"
-				ng-click="vm.navigate('account.view.transactions', account.id)"
-				ng-repeat="account in vm.userAccounts">
-
-				<span>{{account.acct_name}}</span>
+				<div class="icon-wrapper">
+					<span>S</span>
+				</div>
 			</li>
 		</ul>
 	</section>
 
 	<section class="sideboard-expanded" ng-class="{'active': vm.isSideboardOpen}">
-		<ul class="full-nav">
+
+		<!-- Logged Out Full Nav -->
+		<ul class="full-nav" ng-if="!vm.userData.loggedin">
 			<li class="sidebar-nav-item"
 				ng-class="{'selected': vm.stateDetails.name === 'home'}"
-				ng-if="!vm.userData.loggedin"
+				ng-if="vm.currentMiniNavItem === 'home'"
 				ng-click="vm.navigate('home')">
 
 				<span translate="budget.SIDEBOARD.VIEW.HOME"></span>
 			</li>
 			<li class="sidebar-nav-item"
 				ng-class="{'selected': vm.stateDetails.name === 'login'}"
-				ng-if="!vm.userData.loggedin"
+				ng-if="vm.currentMiniNavItem === 'home'"
 				ng-click="vm.navigate('login')">
 
 				<span translate="budget.SIDEBOARD.VIEW.LOGIN"></span>
 			</li>
 			<li class="sidebar-nav-item"
 				ng-class="{'selected': vm.stateDetails.name === 'signup'}"
-				ng-if="!vm.userData.loggedin"
+				ng-if="vm.currentMiniNavItem === 'home'"
 				ng-click="vm.navigate('signup')">
 
 				<span translate="budget.SIDEBOARD.VIEW.SIGNUP"></span>
 			</li>
 		</ul>
+
+		<!-- Logged In Full Nav -->
+		<ul class="full-nav" ng-if="vm.userData.loggedin">
+			<li class="sidebar-nav-item"
+				ng-class="{'selected': vm.currentMiniNavItem === 'dashboard'}"
+				ng-if="vm.currentMiniNavItem === 'dashboard'"
+				ng-click="vm.navigate('dashboard')">
+
+				<span translate="budget.DASHBOARD.HEADER"></span>
+			</li>
+
+			<li class="sidebar-nav-item"
+				ng-repeat="account in vm.userAccounts"
+				ng-class="{'selected': vm.checkAccountActive(account.id)}"
+				ng-if="vm.currentMiniNavItem === 'account' && vm.userAccounts.length > 0"
+				ng-click="vm.navigate('account.view.transactions', account.id)">
+
+				<span>{{account.acct_name}}</span>
+			</li>
+			<li class="sidebar-nav-item"
+				ng-class="{'selected': vm.currentMiniNavItem === 'account.create'}"
+				ng-if="vm.currentMiniNavItem === 'account'"
+				ng-click="vm.navigate('account.create')">
+
+				<span translate="budget.ACCOUNT.CREATE.NAV_TEXT"></span>
+			</li>
+
+			<li class="sidebar-nav-item"
+				ng-class="{'selected': vm.currentMiniNavItem === 'settings.tagManager'}"
+				ng-if="vm.currentMiniNavItem === 'settings'"
+				ng-click="vm.navigate('settings.tagManager')">
+
+				<span>Manage Tags</span>
+			</li>
+		</ul>
 	</section>
-
-	<!--<section>-->
-		<!--<div class="mod-header-wrapper">-->
-			<!--<div class="mod-header">-->
-				<!--<h4 translate="budget.SIDEBOARD.VIEW.HEADER"></h4>-->
-			<!--</div>-->
-		<!--</div>-->
-		<!--<div class="mod-body-wrapper">-->
-			<!--<div class="mod-body">-->
-				<!--<ul class="sidebar-nav">-->
-					<!--<li class="sidebar-nav-item"-->
-						<!--ng-class="{'selected': vm.stateDetails.name === 'home'}"-->
-						<!--ng-if="!vm.userData.loggedin"-->
-						<!--ng-click="vm.navigate('home')">-->
-
-						<!--<span translate="budget.SIDEBOARD.VIEW.HOME"></span>-->
-					<!--</li>-->
-					<!--<li class="sidebar-nav-item"-->
-						<!--ng-class="{'selected': vm.stateDetails.name === 'login'}"-->
-						<!--ng-if="!vm.userData.loggedin"-->
-						<!--ng-click="vm.navigate('login')">-->
-
-						<!--<span translate="budget.SIDEBOARD.VIEW.LOGIN"></span>-->
-					<!--</li>-->
-					<!--<li class="sidebar-nav-item"-->
-						<!--ng-class="{'selected': vm.stateDetails.name === 'signup'}"-->
-						<!--ng-if="!vm.userData.loggedin"-->
-						<!--ng-click="vm.navigate('signup')">-->
-
-						<!--<span translate="budget.SIDEBOARD.VIEW.SIGNUP"></span>-->
-					<!--</li>-->
-					<!--<li class="sidebar-nav-item"-->
-						<!--ng-class="{'selected': vm.stateDetails.name === 'dashboard'}"-->
-						<!--ng-if="vm.userData.loggedin"-->
-						<!--ng-click="vm.navigate('dashboard')">-->
-
-						<!--<span translate="budget.SIDEBOARD.VIEW.DASHBOARD"></span>-->
-					<!--</li>-->
-					<!--<li class="sidebar-nav-item"-->
-						<!--ng-class="{'selected': vm.checkAccountActive(account.id)}"-->
-						<!--ng-if="vm.userData.loggedin"-->
-						<!--ng-click="vm.navigate('account.view', account.id)"-->
-						<!--ng-repeat="account in vm.userAccounts">-->
-
-						<!--<span>{{account.acct_name}}</span>-->
-					<!--</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</section>-->
-
-	<!--<section ng-if="vm.userData.loggedin">-->
-		<!--<div class="mod-header-wrapper">-->
-			<!--<div class="mod-header">-->
-				<!--<h4 translate="budget.SIDEBOARD.CREATE.HEADER"></h4>-->
-			<!--</div>-->
-		<!--</div>-->
-		<!--<div class="mod-body-wrapper">-->
-			<!--<div class="mod-body">-->
-				<!--<ul class="sidebar-nav">-->
-					<!--<li class="sidebar-nav-item" ng-class="{'selected': vm.stateDetails.name === 'account.create'}"-->
-						<!--ng-click="vm.navigate('account.create')">-->
-						<!--<span translate="budget.SIDEBOARD.CREATE.ACCOUNT"></span>-->
-					<!--</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</section>-->
 </div>

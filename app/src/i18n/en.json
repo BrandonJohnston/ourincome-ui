@@ -23,7 +23,6 @@
 		},
         "SIDEBOARD": {
             "VIEW": {
-                "HEADER": "View",
                 "HOME": "Home",
                 "DASHBOARD": "Dashboard",
 				"LOGIN": "Login",
@@ -71,6 +70,7 @@
         },
 		"ACCOUNT": {
 			"CREATE": {
+				"NAV_TEXT": "Add New Account",
 				"HEADER": "Add new account",
 				"ACCT_NAME_LABEL": "Account Name:",
 				"ACCT_NAME_PLACEHOLDER": "Account Name",
@@ -136,6 +136,11 @@
 				"PRIMARY_ACTION": "Delete Transaction",
 				"DELETE_TEXT": "Are you sure you wish to delete the following transaction:",
 				"UNDONE": "This action cannot be undone."
+			}
+		},
+		"SETTINGS": {
+			"TAG_MANAGER": {
+				"HEADER": "Manage Tags"
 			}
 		}
     }

@@ -6,18 +6,55 @@
 .general-module {
     position: relative;
 
+
+	/*****************************************************************************
+    **		Header
+    *****************************************************************************/
+	.mod-header-wrapper {
+		background: $white;
+		border-bottom: 1px solid $gray;
+	}
+
     .mod-header {
         padding: budget-calc(20, 16, em);
+
+		h4 {
+			font-size: budget-calc(28, 16, em);
+			font-weight: 100;
+		}
     }
 
+
+	/*****************************************************************************
+    **		Body
+    *****************************************************************************/
+	.mod-body-wrapper {
+		background: $white;
+	}
+
     .mod-body {
+		background: $white;
         padding: budget-calc(20, 16, em);
     }
 
+
+	/*****************************************************************************
+    **		Footer
+    *****************************************************************************/
+	.mod-footer-wrapper {
+		background: $white;
+		border-top: 1px solid $gray;
+	}
+
 	.mod-footer {
+		background: $white;
 		padding: budget-calc(20, 16, em);
 	}
 
+
+	/*****************************************************************************
+    **		Other
+    *****************************************************************************/
     .limited-container {
         margin: 0 auto;
         max-width: budget-calc(400, 16, em);
