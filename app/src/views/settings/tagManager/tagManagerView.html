@@ -4,9 +4,59 @@
 			<h4 translate="budget.SETTINGS.TAG_MANAGER.HEADER"></h4>
 		</div>
 	</div>
-	<div class="mod-body-wrapper">
+	<div class="mod-body-wrapper tag-manager-loading" ng-if="vm.loading">
 		<div class="mod-body">
-			<p>body</p>
+			<p>loading</p>
+		</div>
+	</div>
+	<div class="mod-body-wrapper tag-manager-controls" ng-if="!vm.loading">
+		<div class="mod-body">
+			<p>put controls here - such as add / edit / delete buttons</p>
+		</div>
+	</div>
+	<div class="mod-body-wrapper" ng-if="!vm.loading">
+		<div class="mod-body">
+			<!-- User has no tags, display a message -->
+			<div class="no-tag-warning" ng-if="vm.userTags.length === 0">
+				<p>Translate a message about having no tags</p>
+			</div>
+
+			<!-- User has tags, display them -->
+			<ul class="tags-list" ng-if="vm.userTags.length > 0">
+				<li class="user-tag user-tag-header">
+					<div class="tag-row">
+						<div class="tag-name">
+							<p translate="budget.SETTINGS.TAG_MANAGER.TAG_NAME"></p>
+						</div>
+						<div class="tag-parent">
+							<p translate="budget.SETTINGS.TAG_MANAGER.TAG_PARENT"></p>
+						</div>
+						<div class="tag-date">
+							<p translate="budget.SETTINGS.TAG_MANAGER.TAG_DATE"></p>
+						</div>
+						<div class="tag-options"></div>
+					</div>
+				</li>
+				<li class="user-tag" ng-repeat="tag in vm.userTags track by $index">
+					<div class="tag-row">
+						<div class="tag-name">
+							<p>{{::tag.tag_name}}</p>
+						</div>
+						<div class="tag-parent">
+							<p>{{::vm.getTagParent(tag.tag_parent)}}</p>
+						</div>
+						<div class="tag-date">
+							<p>{{::vm.getTagDisplayDate(tag.tag_date)}}</p>
+						</div>
+						<div class="tag-options">
+							<p ng-click="vm.openRowOptions(tag.id)"></p>
+							<budget-popover ng-if="tag.id === vm.openOptionsRow"
+											config="vm.rowPopoverConfig"
+											close="vm.closeRowOptions(apply)"></budget-popover>
+						</div>
+					</div>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>

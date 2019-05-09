@@ -68,9 +68,6 @@
 		    // Get account-wide data (tags)
 		    TagsFactory.getTags().then(function(response) {
 
-			    $log.debug("getTags() response");
-			    $log.debug(response);
-
 			    // Save the returned data for use later
 			    if (response.length > 0) {
 				    TagsFactory.setUserTagsData(response);

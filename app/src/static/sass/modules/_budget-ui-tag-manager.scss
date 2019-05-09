@@ -1,0 +1,102 @@
+/*****************************************************************************
+**
+**		Tag Manager Module
+**
+*****************************************************************************/
+.tag-manager-module {
+
+	.tag-manager-controls {
+		border-bottom: 1px solid $gray;
+	}
+
+	.tags-list {
+
+		.tag-row {
+			align-items: stretch;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+		}
+
+		.user-tag {
+			background: $white;
+			border-bottom: 1px solid $blue-darker;
+
+			&:nth-child(even) {
+				background: $offwhite;
+			}
+		}
+
+		.user-tag-header {
+			background: $blue-dark;
+			border-top: 1px solid $blue-darker;
+
+			p {
+				color: $white;
+			}
+
+			.trans-options {
+				height: budget-calc(42, 16, em);
+			}
+		}
+
+		.tag-name, .tag-parent, .tag-date, .tag-options {
+			display: inline-block;
+			flex-grow: 1;
+			padding: budget-calc($padding-half, 16, em);
+			vertical-align: top;
+			white-space: nowrap;
+
+			> p {
+				font-size: budget-calc(18, 16, em);
+				font-weight: 100;
+			}
+		}
+
+		.tag-name {
+			order: 1;
+			width: 35%;
+		}
+
+		.tag-parent {
+			border-left: 1px solid $blue-darker;
+			order: 2;
+			width: 40%;
+		}
+
+		.tag-date {
+			border-left: 1px solid $blue-darker;
+			order: 3;
+			width: calc(25% - 25px);
+		}
+
+		.tag-options {
+			border-left: 1px solid $blue-darker;
+			order: 4;
+			padding: 0;
+			position: relative;
+			text-align: center;
+			width: budget-calc(25, 16, em);
+
+			&:before {
+				content: '';
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+				width: 0;
+			}
+
+			> p {
+				background: url('/static/images/icon_options_black_4x18.svg') center center no-repeat;
+				background-size: 4px 20px;
+				cursor: pointer;
+				display: inline-block;
+				height: 100%;
+				margin: 0;
+				padding: budget-calc(10, 18, em);
+				vertical-align: middle;
+				width: budget-calc(24, 18, em);
+			}
+		}
+	}
+}

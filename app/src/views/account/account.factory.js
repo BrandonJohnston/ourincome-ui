@@ -241,9 +241,6 @@
 				},
 				function errorCallback(errorResponse) {
 
-					$log.debug("user.service :: signupUser() error:");
-					$log.debug(errorResponse);
-
 					// TODO: Process the error
 
 					return deferred.resolve(errorResponse.data);
@@ -295,9 +292,6 @@
 
 				},
 				function errorCallback(errorResponse) {
-
-					$log.debug("user.service :: signupUser() error:");
-					$log.debug(errorResponse);
 
 					// TODO: Process the error
 
@@ -491,14 +485,21 @@
 		function transformAccountTransactionsData(transData) {
 
 			var newTransData = [];
+			var date,
+				displayDate;
 
 			angular.forEach(transData, function(transaction, key) {
+
+				date = transaction.trans_date.split('-');
+				displayDate = date[1] === '05' ?
+					moment(transaction.trans_date, CalendarConstants.DATE_ID_FORMAT).format(CalendarConstants.DATE_NICE_FORMAT_MAY) :
+					moment(transaction.trans_date, CalendarConstants.DATE_ID_FORMAT).format(CalendarConstants.DATE_NICE_FORMAT);
 
 				var transaction = {
 					rowType: AccountConstants.ROW_TYPE_TRANSACTION,
 					transAmount: transaction.trans_amount,
 					transDate: transaction.trans_date,
-					transDisplayDate: moment(transaction.trans_date, CalendarConstants.DATE_ID_FORMAT).format(CalendarConstants.DATE_NICE_FORMAT),
+					transDisplayDate: displayDate,
 					transName: transaction.trans_name,
 					transType: transaction.trans_type,
 					transTags: processTransactionTagsData(transaction.trans_tags),

@@ -140,7 +140,10 @@
 		},
 		"SETTINGS": {
 			"TAG_MANAGER": {
-				"HEADER": "Manage Tags"
+				"HEADER": "Manage Tags",
+				"TAG_NAME": "Tag Name",
+				"TAG_PARENT": "Tag Parent",
+				"TAG_DATE": "Date Created"
 			}
 		}
     }

@@ -14,12 +14,14 @@
 	function TagsFactory($log, $http, $q) {
 
 		var userTagsData = {
-			tags: []
+			tags: [],
+			tagsFlatList: []
 		};
 
 		var service = {
 			getTags: getTags,
 			setUserTagsData: setUserTagsData,
+			setUserTagsFlatData: setUserTagsFlatData,
 			getUserTagsData: getUserTagsData
 		};
 
@@ -44,6 +46,7 @@
 				function successCallback(response) {
 
 					var hierarchyTagsArray = convertTagsToHierarchy(response.data);
+					setUserTagsFlatData(response.data);
 
 					return deferred.resolve(hierarchyTagsArray);
 				},
@@ -65,6 +68,15 @@
 		function setUserTagsData(userData) {
 
 			userTagsData.tags = userData;
+		}
+
+
+		/*
+		 * setUserTagsFlatData - save users tag data for use throughout the application
+		 */
+		function setUserTagsFlatData(userData) {
+
+			userTagsData.tagsFlatList = userData;
 		}
 
 
