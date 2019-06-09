@@ -143,7 +143,13 @@
 				"HEADER": "Manage Tags",
 				"TAG_NAME": "Tag Name",
 				"TAG_PARENT": "Tag Parent",
-				"TAG_DATE": "Date Created"
+				"TAG_DATE": "Date Created",
+				"CREATE_TAG": {
+					"NAME_LABEL": "Tag Name",
+					"NAME_PLACEHOLDER": "Tag Name",
+					"PARENT_LABEL": "Tag Parent",
+					"SAVE_TEXT": "Create Tag"
+				}
 			}
 		}
     }

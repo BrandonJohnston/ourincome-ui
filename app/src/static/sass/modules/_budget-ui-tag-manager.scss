@@ -5,10 +5,40 @@
 *****************************************************************************/
 .tag-manager-module {
 
+	/*****************************************************************************
+	**		Tag Manager Bulk Controls
+	*****************************************************************************/
 	.tag-manager-controls {
 		border-bottom: 1px solid $gray;
 	}
 
+	.create-tag-form > ul {
+		align-items: flex-start;
+		display: flex;
+		justify-content: space-around;
+
+		> li {
+			padding: 0;
+		}
+
+		.tag-name-item {
+			flex-grow: 2;
+		}
+
+		.tag-parent-item {
+			flex-grow: 2;
+			padding: 0 budget-calc(20, 16, em);
+		}
+
+		.tag-save-item {
+			flex-grow: 1;
+		}
+	}
+
+
+	/*****************************************************************************
+	**		Tags list
+	*****************************************************************************/
 	.tags-list {
 
 		.tag-row {

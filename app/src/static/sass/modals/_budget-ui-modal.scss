@@ -5,7 +5,9 @@
 *****************************************************************************/
 
 .modal-content {
-	border-radius: budget-calc(4, 16, em);
+	// reset vendor css rules
+	border: none;
+	border-radius: 0;
 }
 
 .budget-modal-module {
@@ -15,7 +17,6 @@
 	*****************************************************************************/
 	.mod-header {
 		background: $blue;
-		border-radius: budget-calc(4, 16, em) budget-calc(4, 16, em) 0 0;
 		padding: budget-calc($padding-half, 16, em) budget-calc(60, 16, em) budget-calc($padding-half, 16, em) budget-calc($padding-default, 16, em);
 		position: relative;
 
@@ -67,7 +68,6 @@
 	*****************************************************************************/
 	.mod-footer {
 		border-top: 1px solid $blue;
-		border-radius: 0 0 budget-calc(4, 16, em) budget-calc(4, 16, em);
 		padding: 0;
 		text-align: right;
 

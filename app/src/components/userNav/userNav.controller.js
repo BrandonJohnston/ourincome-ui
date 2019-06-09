@@ -8,7 +8,6 @@ angular
 
 
 userNavController.$inject = [
-	'$scope',
 	'$log',
 	'$state',
 	'UserService',
@@ -16,7 +15,7 @@ userNavController.$inject = [
 ];
 
 
-function userNavController($scope, $log, $state, UserService, TagsFactory) {
+function userNavController($log, $state, UserService, TagsFactory) {
 
 	var vm = this;
 	$log.debug('userNavController');

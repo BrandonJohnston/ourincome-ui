@@ -11,7 +11,31 @@
 	</div>
 	<div class="mod-body-wrapper tag-manager-controls" ng-if="!vm.loading">
 		<div class="mod-body">
-			<p>put controls here - such as add / edit / delete buttons</p>
+			<form class="create-tag-form">
+				<ul>
+					<li class="tag-name-item">
+						<label class="input-label" translate="budget.SETTINGS.TAG_MANAGER.CREATE_TAG.NAME_LABEL"></label>
+						<input type="text"
+							   placeholder="{{'budget.SETTINGS.TAG_MANAGER.CREATE_TAG.NAME_PLACEHOLDER' | translate}}"
+							   name="tagName"
+							   ng-model="vm.newTagModel.name"
+							   required />
+					</li>
+					<li class="tag-parent-item">
+						<budget-option-dropdown config="vm.tagParentDropdown.config"
+												select-options="vm.tagParentDropdown.tags"
+												ng-model="vm.tagParentDropdown.selectedTag"></budget-option-dropdown>
+					</li>
+					<li class="tag-save-item">
+						<div class="action-container"
+							 ng-click="vm.createTag()">
+							<p class="action-text">
+								<span translate="budget.SETTINGS.TAG_MANAGER.CREATE_TAG.SAVE_TEXT">}</span>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</form>
 		</div>
 	</div>
 	<div class="mod-body-wrapper" ng-if="!vm.loading">
